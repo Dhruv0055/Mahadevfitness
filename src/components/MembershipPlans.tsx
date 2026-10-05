@@ -13,15 +13,14 @@ export const MembershipPlans: React.FC<MembershipPlansProps> = ({ onSelectPlan }
       id: 'flexible',
       name: 'BEGINNER PASS',
       badge: 'MONTHLY STARTER',
-      description: 'Ideal for kickstarting your fitness journey with full floor guidance.',
+      description: 'Ideal starter plan for building consistency and habit.',
       priceNote: 'AFFORDABLE MONTHLY',
       popular: false,
       features: [
         'Full Olympic floor & equipment access',
         'Dual shift entry: Morning & Evening',
-        'Locker room & clean shower access',
-        'Basic workout split & machine induction',
-        'Free fitness assessment on joining'
+        'Locker & changing room facilities',
+        'Machine induction & basic workout split'
       ],
       ctaText: 'PURCHASE NOW'
     },
@@ -29,51 +28,46 @@ export const MembershipPlans: React.FC<MembershipPlansProps> = ({ onSelectPlan }
       id: 'consistent',
       name: 'CONSISTENT BUILDER',
       badge: 'MOST POPULAR (3 MONTHS)',
-      description: 'Our most sought-after plan for committed muscle growth & fat loss.',
-      priceNote: 'BEST VALUE QUARTERLY',
+      description: 'Best value for committed body recomposition.',
+      priceNote: 'QUARTERLY VALUE PASS',
       popular: true,
       features: [
         'Priority floor & free weight rig access',
         'Personalized 3-month progressive split',
-        'Monthly body composition & metric audit',
-        'Nutrition guidelines & diet consultation',
-        'Priority front-desk trainer support'
+        'Monthly bio-metric assessment & audit',
+        'Nutrition guidelines & meal consultation'
       ],
       ctaText: 'PURCHASE NOW'
     },
     {
       id: 'transform',
       name: 'ELITE TRANSFORMATION',
-      badge: 'ANNUAL PRO MEMBERSHIP',
-      description: 'Full 1-year transformation commitment with dedicated trainer mentorship.',
+      badge: 'ANNUAL PRO',
+      description: 'Full 1-year transformation with priority mentorship.',
       priceNote: 'ANNUAL ELITE ACCESS',
       popular: false,
       features: [
         '1-on-1 Personal Trainer allocation option',
         'Custom macro & daily nutrition protocol',
-        'Bi-weekly biomechanical progress audit',
-        'Direct WhatsApp support from head trainer',
-        'Complimentary gym merchandise / shaker'
+        'Bi-weekly biomechanical progress review',
+        'Direct WhatsApp support from head trainer'
       ],
       ctaText: 'PURCHASE NOW'
     }
   ];
 
   return (
-    <section id="membership" className="relative py-20 sm:py-28 lg:py-36 bg-[#08090C] border-t border-white/[0.08] overflow-hidden text-white">
+    <section id="membership" className="relative py-16 sm:py-20 bg-white text-zinc-900 border-t border-zinc-200 overflow-hidden">
       
-      {/* Background Red Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FF0336]/10 rounded-full blur-[160px] pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header (Gymate Style) */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-20">
+        {/* Section Header (Compact & Clean) */}
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block mb-3"
+            className="inline-block mb-2.5"
           >
             <div className="brush-badge bg-[#FF0336] text-white text-xs sm:text-sm font-black tracking-widest uppercase">
               PRICING CHART
@@ -81,52 +75,52 @@ export const MembershipPlans: React.FC<MembershipPlansProps> = ({ onSelectPlan }
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase text-white leading-[0.92] tracking-tight mb-4"
+            className="font-display text-4xl sm:text-5xl lg:text-6xl font-black uppercase text-zinc-950 leading-[0.95] tracking-tight mb-3"
           >
-            EXCLUSIVE <span className="text-[#FF0336]">PRICING PLAN</span>
+            Exclusive <span className="text-[#FF0336]">Pricing Plan</span>
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-zinc-400 text-xs sm:text-base leading-relaxed"
+            transition={{ delay: 0.15 }}
+            className="text-zinc-600 text-xs sm:text-sm leading-relaxed"
           >
-            Transparent and goal-driven gym passes for Yogi Chowk residents. Contact our front desk directly at <strong className="text-white">08320102460</strong> for current rate card and admission offers.
+            Affordable fitness passes at Mansarovar Society, Yogi Chowk. Call <strong className="text-zinc-900">08320102460</strong> for current rate card and admission offers.
           </motion.p>
         </div>
 
-        {/* 3 Pricing Cards Grid (Gymate Style) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch mb-12">
-          {plans.map((plan, index) => {
+        {/* 3 Compact Pricing Cards (Clean Gymate Light Aesthetic) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 items-stretch max-w-6xl mx-auto mb-8">
+          {plans.map((plan) => {
             const isPopular = plan.popular;
 
             return (
               <motion.div
                 key={plan.id}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.65, delay: index * 0.1 }}
-                className={`relative rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2.5 ${
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className={`relative rounded-2xl p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-xl ${
                   isPopular
-                    ? 'bg-[#12141A] border-2 border-[#FF0336] shadow-[0_20px_50px_rgba(255,3,54,0.3)] md:-translate-y-3'
-                    : 'bg-[#0E1015] border border-white/10 hover:border-[#FF0336]/60 shadow-xl'
+                    ? 'bg-[#FFF8F8] border-2 border-[#FF0336] shadow-md md:-translate-y-1'
+                    : 'bg-[#F9FAFB] border border-zinc-200 hover:border-zinc-300'
                 }`}
               >
-                {/* Header Badge */}
+                {/* Badge Tag */}
                 {plan.badge && (
-                  <div className="mb-4">
+                  <div className="mb-3">
                     <span
                       className={`inline-block px-3 py-1 text-[10px] font-mono font-black uppercase tracking-wider rounded ${
                         isPopular
-                          ? 'bg-[#FF0336] text-white shadow-md'
-                          : 'bg-white/10 text-zinc-300 border border-white/10'
+                          ? 'bg-[#FF0336] text-white shadow-sm'
+                          : 'bg-zinc-200 text-zinc-700'
                       }`}
                     >
                       {plan.badge}
@@ -135,38 +129,34 @@ export const MembershipPlans: React.FC<MembershipPlansProps> = ({ onSelectPlan }
                 )}
 
                 <div>
-                  {/* Plan Name & Tag */}
-                  <h3 className="font-display text-2xl sm:text-3xl font-black uppercase text-white tracking-tight mb-2">
+                  <h3 className="font-display text-2xl font-black uppercase text-zinc-900 tracking-tight mb-1">
                     {plan.name}
                   </h3>
-                  <p className="text-xs text-zinc-400 leading-relaxed mb-6">
+                  <p className="text-xs text-zinc-500 mb-4 line-clamp-1">
                     {plan.description}
                   </p>
 
-                  {/* Pricing Slot */}
-                  <div className="p-4 rounded-xl bg-black/60 border border-white/10 text-center mb-6">
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#FF0336] font-black block">
+                  {/* Compact Pricing Block */}
+                  <div className="p-3 rounded-xl bg-white border border-zinc-200 text-center mb-5 shadow-xs">
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#FF0336] font-extrabold block">
                       OFFICIAL PASS
                     </span>
-                    <span className="font-display text-2xl sm:text-3xl font-black text-white mt-1 block">
+                    <span className="font-display text-2xl font-black text-zinc-950 mt-0.5 block">
                       {plan.priceNote}
                     </span>
-                    <span className="text-[10px] text-zinc-400 mt-0.5 block">
-                      Daily Shifts: 5:30-10:30 AM & 5-10 PM
+                    <span className="text-[10px] text-zinc-500 block">
+                      Shifts: 5:30-10:30 AM & 5-10 PM
                     </span>
                   </div>
 
                   {/* Features List */}
-                  <div className="space-y-3 mb-8">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 font-bold block mb-2">
-                      INCLUDED WITH PLAN:
-                    </span>
+                  <div className="space-y-2 mb-6">
                     {plan.features.map((feature, fIdx) => (
-                      <div key={fIdx} className="flex items-start space-x-2.5">
-                        <div className="mt-0.5 w-4 h-4 rounded bg-[#FF0336]/20 border border-[#FF0336]/40 text-[#FF0336] flex items-center justify-center shrink-0">
-                          <Check className="w-3 h-3 stroke-[3]" />
+                      <div key={fIdx} className="flex items-start space-x-2">
+                        <div className="mt-0.5 w-3.5 h-3.5 rounded bg-red-100 text-[#FF0336] flex items-center justify-center shrink-0">
+                          <Check className="w-2.5 h-2.5 stroke-[3]" />
                         </div>
-                        <span className="text-xs text-zinc-300 leading-snug">
+                        <span className="text-xs text-zinc-700 leading-snug">
                           {feature}
                         </span>
                       </div>
@@ -174,40 +164,30 @@ export const MembershipPlans: React.FC<MembershipPlansProps> = ({ onSelectPlan }
                   </div>
                 </div>
 
-                {/* Card CTA with Gymate Offset Frame */}
-                <div className="pt-4 border-t border-white/10 mt-auto">
-                  <div className="relative group inline-block w-full">
-                    <div
-                      className={`absolute top-1 left-1 w-full h-full border-2 transition-all pointer-events-none ${
-                        isPopular ? 'border-white/50 group-hover:border-[#FF0336]' : 'border-white/20 group-hover:border-white'
-                      }`}
-                    />
-                    <button
-                      onClick={() => onSelectPlan(plan.name)}
-                      className={`relative w-full py-3.5 px-4 text-xs font-black uppercase tracking-wider flex items-center justify-center space-x-2 transition-transform active:translate-x-0.5 active:translate-y-0.5 shadow-lg ${
-                        isPopular
-                          ? 'bg-[#FF0336] hover:bg-[#E00230] text-white'
-                          : 'bg-zinc-900 hover:bg-[#FF0336] text-white border border-white/10'
-                      }`}
-                    >
-                      <span>{plan.ctaText}</span>
-                      <ArrowRight className="w-4 h-4 stroke-[3]" />
-                    </button>
-                  </div>
+                {/* Compact Button */}
+                <div className="pt-3 border-t border-zinc-200 mt-auto">
+                  <button
+                    onClick={() => onSelectPlan(plan.name)}
+                    className={`w-full py-2.5 px-4 text-xs font-black uppercase tracking-wider rounded-lg flex items-center justify-center space-x-2 transition-all active:scale-95 shadow-sm ${
+                      isPopular
+                        ? 'bg-[#FF0336] hover:bg-[#E00230] text-white shadow-[#FF0336]/30'
+                        : 'bg-zinc-900 hover:bg-[#FF0336] text-white'
+                    }`}
+                  >
+                    <span>{plan.ctaText}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
                 </div>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Desk Call Strip */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 p-4 bg-zinc-900/60 border border-white/10 rounded-2xl max-w-2xl mx-auto text-xs text-zinc-300 text-center sm:text-left">
-          <Phone className="w-4 h-4 text-[#FF0336] shrink-0" />
-          <span>Have special questions about shifts or trainer packages? Call front desk:</span>
-          <a
-            href="tel:08320102460"
-            className="text-[#FF0336] font-bold hover:underline font-mono text-sm whitespace-nowrap"
-          >
+        {/* Small Desk Call Strip */}
+        <div className="flex items-center justify-center space-x-2 text-xs text-zinc-600 bg-zinc-50 border border-zinc-200 py-2.5 px-4 rounded-xl max-w-md mx-auto">
+          <Phone className="w-3.5 h-3.5 text-[#FF0336] shrink-0" />
+          <span>Front Desk Hotline:</span>
+          <a href="tel:08320102460" className="text-[#FF0336] font-bold font-mono hover:underline">
             +91 83201 02460
           </a>
         </div>
