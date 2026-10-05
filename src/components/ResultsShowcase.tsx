@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Trophy, Flame, Dumbbell, Clock, CheckCircle2, Calculator } from 'lucide-react';
+import { ArrowRight, Trophy, Flame, Dumbbell, Clock, CheckCircle2 } from 'lucide-react';
 
 interface ResultsShowcaseProps {
   onStartTransformation: () => void;
 }
 
 export const ResultsShowcase: React.FC<ResultsShowcaseProps> = ({ onStartTransformation }) => {
-  const [selectedGoalTab, setSelectedGoalTab] = useState<'fat-loss' | 'muscle' | 'strength'>('muscle');
 
   const stories = [
     {
@@ -185,86 +184,6 @@ export const ResultsShowcase: React.FC<ResultsShowcaseProps> = ({ onStartTransfo
               </motion.div>
             );
           })}
-        </div>
-
-        {/* Interactive Transformation Estimate Calculator Box (New & Better!) */}
-        <div className="p-6 sm:p-8 bg-white rounded-2xl border border-zinc-200 shadow-sm max-w-4xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 mb-4 border-b border-zinc-200">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-xl bg-red-50 text-[#FF0336] flex items-center justify-center shrink-0 border border-red-100">
-                <Calculator className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="font-display text-xl font-black text-zinc-950 uppercase tracking-tight">
-                  Calculate Your Transformation Timeline
-                </h4>
-                <p className="text-xs text-zinc-500">
-                  Select your primary fitness objective to see estimated milestones
-                </p>
-              </div>
-            </div>
-
-            {/* Goal Toggle */}
-            <div className="flex items-center space-x-2 bg-zinc-100 p-1 rounded-xl">
-              <button
-                onClick={() => setSelectedGoalTab('fat-loss')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all ${
-                  selectedGoalTab === 'fat-loss'
-                    ? 'bg-[#FF0336] text-white shadow-sm'
-                    : 'text-zinc-600 hover:text-zinc-900'
-                }`}
-              >
-                Fat Loss
-              </button>
-              <button
-                onClick={() => setSelectedGoalTab('muscle')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all ${
-                  selectedGoalTab === 'muscle'
-                    ? 'bg-[#FF0336] text-white shadow-sm'
-                    : 'text-zinc-600 hover:text-zinc-900'
-                }`}
-              >
-                Muscle Mass
-              </button>
-              <button
-                onClick={() => setSelectedGoalTab('strength')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all ${
-                  selectedGoalTab === 'strength'
-                    ? 'bg-[#FF0336] text-white shadow-sm'
-                    : 'text-zinc-600 hover:text-zinc-900'
-                }`}
-              >
-                Strength
-              </button>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-            <div className="p-3.5 bg-zinc-50 rounded-xl border border-zinc-200">
-              <span className="text-[10px] font-mono uppercase text-zinc-500 block mb-1">
-                Estimated Timeline
-              </span>
-              <span className="font-display text-2xl font-black text-[#FF0336]">
-                {selectedGoalTab === 'fat-loss' ? '12 - 16 Weeks' : selectedGoalTab === 'muscle' ? '16 - 24 Weeks' : '8 - 12 Weeks'}
-              </span>
-            </div>
-            <div className="p-3.5 bg-zinc-50 rounded-xl border border-zinc-200">
-              <span className="text-[10px] font-mono uppercase text-zinc-500 block mb-1">
-                Optimal Attendance
-              </span>
-              <span className="font-display text-2xl font-black text-zinc-900">
-                4 to 5 Days / Week
-              </span>
-            </div>
-            <div className="p-3.5 bg-zinc-50 rounded-xl border border-zinc-200">
-              <span className="text-[10px] font-mono uppercase text-zinc-500 block mb-1">
-                Recommended Shift
-              </span>
-              <span className="font-display text-2xl font-black text-zinc-900">
-                5:30 AM or 6:00 PM
-              </span>
-            </div>
-          </div>
         </div>
 
       </div>

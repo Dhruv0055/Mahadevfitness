@@ -9,7 +9,6 @@ import { FacilitiesGallery } from './components/FacilitiesGallery';
 import { GymateBanner } from './components/GymateBanner';
 import { ResultsShowcase } from './components/ResultsShowcase';
 import { MembershipPlans } from './components/MembershipPlans';
-import { PersonalTraining } from './components/PersonalTraining';
 import { TestimonialSlider } from './components/TestimonialSlider';
 import { LocationSection } from './components/LocationSection';
 import { ContactLeadSection } from './components/ContactLeadSection';
@@ -97,12 +96,7 @@ export const App: React.FC = () => {
           onSelectPlan={(plan) => scrollToLeadForm(`${plan} Membership`)}
         />
 
-        {/* Section 8: Personal Training Split Spotlight */}
-        <PersonalTraining
-          onEnquirePT={() => scrollToLeadForm('Personal Training')}
-        />
-
-        {/* Section 9: Genuine Member Reviews */}
+        {/* Section 8: Genuine Member Reviews */}
         <TestimonialSlider />
 
         {/* Section 10: Surat Location & Google Maps */}
