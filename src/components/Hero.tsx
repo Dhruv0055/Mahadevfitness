@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ArrowRight, Star } from 'lucide-react';
 
 interface HeroProps {
   onStartJourney: () => void;
@@ -11,24 +11,19 @@ export const Hero: React.FC<HeroProps> = ({ onStartJourney, onExploreGym }) => {
   const slides = [
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2200&q=85',
-      title: 'Dumbbell & Olympic Floor'
+      image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2400&q=85',
+      title: 'Power & Olympic Floor'
     },
     {
       id: 'video',
       video: 'https://assets.mixkit.co/videos/preview/mixkit-man-training-with-dumbbells-in-a-gym-44169-large.mp4',
-      image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=2200&q=85',
+      image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=2400&q=85',
       title: 'Live Athlete Training'
     },
     {
       id: 2,
-      image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=2200&q=85',
-      title: 'Heavy Barbell & Power Racks'
-    },
-    {
-      id: 4,
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=2200&q=85',
-      title: '1-on-1 Coaching Floor'
+      image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=2400&q=85',
+      title: 'Heavy Free Weights'
     }
   ];
 
@@ -37,21 +32,21 @@ export const Hero: React.FC<HeroProps> = ({ onStartJourney, onExploreGym }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000);
+    }, 7000);
     return () => clearInterval(interval);
   }, [slides.length]);
 
   return (
     <section
       id="home"
-      className="relative flex flex-col items-center justify-center overflow-hidden pt-20 pb-4 sm:pt-28 sm:pb-8 lg:min-h-screen"
+      className="relative min-h-[92vh] lg:min-h-screen flex items-center justify-center overflow-hidden pt-28 sm:pt-36 pb-16 lg:pb-24 bg-[#08090C]"
     >
-      {/* Background Slideshow & Video */}
+      {/* Background Slideshow / Video */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <AnimatePresence mode="wait">
           {slides[currentSlide].video ? (
             <motion.div
-              key="video-slide"
+              key="hero-video"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -64,156 +59,149 @@ export const Hero: React.FC<HeroProps> = ({ onStartJourney, onExploreGym }) => {
                 muted
                 playsInline
                 poster={slides[currentSlide].image}
-                className="w-full h-full object-cover object-[center_35%] sm:object-center filter brightness-[0.55] contrast-[1.15]"
+                className="w-full h-full object-cover object-center filter brightness-[0.45] contrast-[1.2]"
               >
                 <source src={slides[currentSlide].video} type="video/mp4" />
               </video>
             </motion.div>
           ) : (
             <motion.div
-              key={`slide-${currentSlide}`}
-              initial={{ opacity: 0, scale: 1.06 }}
+              key={`hero-slide-${currentSlide}`}
+              initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 1.2, ease: 'easeOut' }}
+              transition={{ duration: 1.2 }}
               className="absolute inset-0 w-full h-full"
             >
               <img
                 src={slides[currentSlide].image}
                 alt={slides[currentSlide].title}
-                className="w-full h-full object-cover object-[center_35%] sm:object-center filter brightness-[0.55] contrast-[1.15]"
+                className="w-full h-full object-cover object-center filter brightness-[0.45] contrast-[1.2]"
               />
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Smooth Dark Vignettes */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#08090C] via-[#08090C]/50 to-[#08090C]/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#08090C]/80 via-transparent to-[#08090C]/80" />
+        {/* Dramatic Crimson & Dark Vignettes from Pin */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#08090C] via-[#08090C]/60 to-[#08090C]/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#08090C]/90 via-[#08090C]/40 to-[#08090C]/90" />
+        
+        {/* Ambient Crimson Glow (Matches Pin Red Smoke) */}
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#FF0336]/25 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/4 -left-24 w-80 h-80 bg-[#FF0336]/15 rounded-full blur-[100px] pointer-events-none" />
       </div>
 
-      {/* Hero Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-        
-        {/* Status Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
-          className="flex items-center justify-center mb-5 sm:mb-8"
-        >
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-[#0E1015]/90 border border-white/10 backdrop-blur-md shadow-xl">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-zinc-200 font-bold">
-              5.0 ★ Top Rated • Mansarovar Society, Yogi Chowk
-            </span>
-          </div>
-        </motion.div>
+      {/* Decorative Graphic Accents from Pin Design */}
+      {/* 1. Zigzag wave lines top left */}
+      <div className="absolute top-36 left-6 sm:left-16 z-10 pointer-events-none hidden sm:block opacity-60">
+        <svg width="64" height="24" viewBox="0 0 64 24" fill="none" stroke="#FF0336" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M2 12L12 4L22 20L32 4L42 20L52 4L62 12" />
+        </svg>
+      </div>
 
-        {/* Bold Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[9.5rem] font-black tracking-[-0.02em] uppercase text-white leading-[0.94] mb-4 sm:mb-6 max-w-5xl"
-        >
-          <span className="sr-only">Mahadev Fitness Gym Surat | </span>
-          BUILD YOUR<br />
-          <span className="text-white">
-            STRONGEST
-          </span>{' '}
-          <span className="text-[#FF2626] inline-block filter drop-shadow-[0_0_25px_rgba(255,38,38,0.6)]">
-            SELF.
-          </span>
-        </motion.h1>
+      {/* 2. Dotted Matrix Pattern bottom left */}
+      <div className="absolute bottom-16 left-6 sm:left-14 z-10 pointer-events-none hidden md:grid grid-cols-6 gap-2.5 opacity-30">
+        {Array.from({ length: 24 }).map((_, i) => (
+          <div key={i} className="w-1.5 h-1.5 rounded-full bg-white" />
+        ))}
+      </div>
 
-        {/* Supporting Copy */}
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-xs sm:text-base md:text-lg text-zinc-300 font-normal max-w-xl mx-auto leading-relaxed mb-6 sm:mb-8"
-        >
-          Surat’s premier fitness ground in Yogi Chowk with complete Olympic strength setup, high-energy environment & result-driven coaching.
-        </motion.p>
-
-        {/* Action Buttons - Side-by-side on mobile */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-row items-center justify-center gap-2.5 sm:gap-4 w-full sm:w-auto"
-        >
-          <button
-            onClick={onStartJourney}
-            className="btn-primary-red flex-1 sm:flex-none px-5 sm:px-8 py-3.5 sm:py-4 text-xs font-black uppercase tracking-wider rounded-xl flex items-center justify-center space-x-2 group active:scale-95 shadow-lg shadow-[#FF2626]/20"
+      {/* Hero Content Container */}
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="max-w-3xl">
+          
+          {/* Red Brush Badge from Pin: FIND YOUR ENERGY */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mb-4 sm:mb-6 flex items-center space-x-3"
           >
-            <span>START JOURNEY</span>
-            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transform group-hover:translate-x-1 transition-transform" />
-          </button>
+            <div className="brush-badge bg-[#FF0336] text-white text-xs sm:text-sm font-black tracking-widest uppercase shadow-[0_4px_15px_rgba(255,3,54,0.4)]">
+              FIND YOUR ENERGY
+            </div>
+            <div className="flex items-center space-x-1 text-amber-400 text-xs font-mono font-bold bg-black/60 px-2.5 py-1 rounded border border-white/10">
+              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+              <span>5.0 (108+ Reviews)</span>
+            </div>
+          </motion.div>
 
-          <button
-            onClick={onExploreGym}
-            className="flex-1 sm:flex-none px-4 sm:px-7 py-3.5 sm:py-4 bg-[#0E1015]/90 hover:bg-white hover:text-black text-white text-xs font-bold uppercase tracking-wider rounded-xl border border-white/15 backdrop-blur-md transition-all flex items-center justify-center shadow-lg active:scale-95"
+          {/* Iconic High-Impact Headline from Pin */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[6.5rem] font-black uppercase text-white leading-[0.92] tracking-tight mb-5 sm:mb-7"
           >
-            FACILITIES
-          </button>
-        </motion.div>
+            MAKE YOUR BODY <br />
+            <span className="text-white">HEALTHY</span>{' '}
+            <span className="text-[#FF0336] inline-block drop-shadow-[0_0_35px_rgba(255,3,54,0.6)]">
+              & FIT
+            </span>
+          </motion.h1>
 
-        {/* Clean, Breathable Metric Strip (3 Core Pillars, No Duplication) */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="grid grid-cols-3 gap-2 sm:gap-8 mt-7 sm:mt-10 pt-5 border-t border-white/10 max-w-3xl w-full text-left"
-        >
-          <div className="pl-2.5 sm:pl-4 border-l-2 border-[#FF2626] transition-colors py-0.5">
-            <span className="text-[8px] sm:text-[10px] font-mono uppercase tracking-widest text-[#FF2626] font-bold block mb-0.5 truncate">
-              RATING
-            </span>
-            <span className="font-display text-xs sm:text-xl font-bold text-white block leading-tight">
-              5.0 / 5.0 ★
-            </span>
-            <span className="text-[9px] sm:text-[11px] text-zinc-400 font-normal hidden sm:block">108+ Verified Reviews</span>
-          </div>
+          {/* Descriptive Copy with Mahadev Fitness Yogi Chowk Details */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-zinc-300 text-sm sm:text-base md:text-lg max-w-xl font-normal leading-relaxed mb-8 sm:mb-10"
+          >
+            Surat’s premier fitness ground located at Mansarovar Society, Yogi Chowk. Equipped with heavy Olympic strength gear, certified trainers, and dynamic morning & evening shifts.
+          </motion.p>
 
-          <div className="pl-2.5 sm:pl-4 border-l-2 border-white/20 hover:border-[#FF2626] transition-colors py-0.5">
-            <span className="text-[8px] sm:text-[10px] font-mono uppercase tracking-widest text-zinc-400 font-bold block mb-0.5 truncate">
-              FACILITY
-            </span>
-            <span className="font-display text-xs sm:text-xl font-bold text-white block leading-tight">
-              Olympic Strength
-            </span>
-            <span className="text-[9px] sm:text-[11px] text-zinc-400 font-normal hidden sm:block">Spacious & Clean Floor</span>
-          </div>
+          {/* Dual Action Buttons with Gymate Offset Frame */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex flex-wrap items-center gap-5 sm:gap-7"
+          >
+            {/* Gymate Signature Offset Border Button: OUR CLASSES */}
+            <div className="relative group inline-block">
+              <div className="absolute top-1.5 left-1.5 w-full h-full border-2 border-white/40 group-hover:border-[#FF0336] transition-all duration-200 pointer-events-none" />
+              <button
+                onClick={onExploreGym}
+                className="relative bg-[#FF0336] group-hover:bg-[#E00230] text-white px-7 sm:px-9 py-3.5 sm:py-4 text-xs sm:text-sm font-black uppercase tracking-wider flex items-center space-x-3 transition-transform active:translate-x-1 active:translate-y-1 shadow-xl shadow-[#FF0336]/30"
+              >
+                <span>OUR CLASSES</span>
+                <ArrowRight className="w-4 h-4 stroke-[3] group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
 
-          <div className="pl-2.5 sm:pl-4 border-l-2 border-[#FF2626] transition-colors py-0.5">
-            <span className="text-[8px] sm:text-[10px] font-mono uppercase tracking-widest text-[#FF2626] font-bold block mb-0.5 truncate">
-              COACHING
-            </span>
-            <span className="font-display text-xs sm:text-xl font-bold text-white block leading-tight">
-              1-on-1 Mentors
-            </span>
-            <span className="text-[9px] sm:text-[11px] text-zinc-400 font-normal hidden sm:block">Custom Splits & Diet</span>
-          </div>
-        </motion.div>
+            {/* Secondary Action: Join Now */}
+            <button
+              onClick={onStartJourney}
+              className="text-white hover:text-[#FF0336] font-display text-sm sm:text-base font-extrabold tracking-wider uppercase flex items-center space-x-2 py-3 px-4 border-b-2 border-white/30 hover:border-[#FF0336] transition-all"
+            >
+              <span>JOIN TODAY (5:30 AM & 5 PM SHIFTS)</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </motion.div>
 
-        {/* Scroll Down Trigger - Compact & Cleanly Spaced */}
-        <motion.a
-          href="#why-us"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-          className="mt-3 sm:mt-5 mb-1 flex flex-col items-center space-y-0.5 text-zinc-500 hover:text-white transition-colors cursor-pointer group z-20"
-        >
-          <span className="text-[9px] font-mono uppercase tracking-widest text-zinc-500 font-bold">
-            SCROLL
-          </span>
-          <ChevronDown className="w-3.5 h-3.5 text-[#FF2626] animate-bounce" />
-        </motion.a>
+          {/* Bottom Quick Feature Highlights */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="mt-12 sm:mt-16 pt-6 border-t border-white/10 flex flex-wrap items-center gap-6 sm:gap-10 text-xs font-mono text-zinc-400 uppercase tracking-wider"
+          >
+            <div className="flex items-center space-x-2">
+              <span className="w-2 h-2 rounded-full bg-[#FF0336]" />
+              <span className="text-zinc-200 font-bold">Mansarovar Society</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <span className="w-2 h-2 rounded-full bg-[#FF0336]" />
+              <span className="text-zinc-200 font-bold">Olympic Free Weights</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-zinc-200 font-bold">Direct Phone: 08320102460</span>
+            </div>
+          </motion.div>
 
+        </div>
       </div>
     </section>
   );
 };
-
