@@ -128,19 +128,8 @@ export const TestimonialSlider: React.FC = () => {
             <Quote className="w-16 h-16 rotate-180" />
           </div>
 
-          {/* Animated Progress Timer Bar at Top */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-zinc-100 overflow-hidden">
-            <motion.div
-              key={activeIndex}
-              initial={{ width: '0%' }}
-              animate={{ width: '100%' }}
-              transition={{ duration: 4.5, ease: 'linear' }}
-              className="h-full bg-[#FF0336]"
-            />
-          </div>
-
           {/* Review Content with Smooth Fade Transitions */}
-          <div className="relative z-10 flex-1 flex flex-col justify-between pt-1">
+          <div className="relative z-10 flex-1 flex flex-col justify-between">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentReview.id}
