@@ -62,14 +62,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinClick }) => {
             className="group flex items-center space-x-3 focus:outline-none shrink-0"
           >
             <div className="w-8 h-8 rounded-md bg-[#FF2626] flex items-center justify-center font-display font-black text-base text-white shadow-[0_0_15px_rgba(255,38,38,0.5)] group-hover:scale-105 transition-transform">
-              BL
+              MF
             </div>
             <div className="flex flex-col">
               <span className="font-display text-xl sm:text-2xl font-black tracking-tight text-white leading-none whitespace-nowrap">
-                THE BODY LAB
+                MAHADEV FITNESS
               </span>
               <span className="text-[10px] font-mono uppercase tracking-widest text-[#FF2626] font-bold mt-0.5 whitespace-nowrap">
-                Surat • Nana Varachha
+                Surat • Yogi Chowk
               </span>
             </div>
           </a>
@@ -102,7 +102,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinClick }) => {
           {/* Right Actions */}
           <div className="hidden lg:flex items-center space-x-3 shrink-0">
             <a
-              href="https://wa.me/918320102460?text=Hi%20The%20Body%20Lab%20Surat,%20I%20would%20like%20to%20inquire%20about%20membership."
+              href="https://wa.me/918320102460?text=Hi%20Mahadev%20Fitness%20Gym%20Surat,%20I%20would%20like%20to%20inquire%20about%20membership."
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs font-bold text-emerald-400 hover:text-emerald-300 px-3.5 py-2 rounded-full bg-emerald-950/40 border border-emerald-500/30 transition-all flex items-center space-x-2 whitespace-nowrap"
@@ -189,7 +189,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinClick }) => {
                     <span>083201 02460</span>
                   </a>
                   <a
-                    href="https://wa.me/918320102460?text=Hi%20The%20Body%20Lab,%20I%20would%20like%20to%20know%20more%20about%20membership."
+                    href="https://wa.me/918320102460?text=Hi%20Mahadev%20Fitness%20Gym%20Surat,%20I%20would%20like%20to%20know%20more%20about%20membership."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center space-x-2 py-2.5 px-3 bg-emerald-950/40 border border-emerald-500/30 rounded-lg text-xs font-bold text-emerald-400"

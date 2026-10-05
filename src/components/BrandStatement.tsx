@@ -16,7 +16,7 @@ export const BrandStatement: React.FC = () => {
           <div className="lg:col-span-6">
             <div className="flex items-center space-x-2 text-brand font-mono text-xs tracking-widest uppercase mb-4 font-medium">
               <span className="w-4 h-[1px] bg-brand" />
-              <span>THE BODY LAB MANIFESTO</span>
+              <span>MAHADEV FITNESS MANIFESTO</span>
             </div>
             
             <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.02]">
@@ -30,7 +30,7 @@ export const BrandStatement: React.FC = () => {
               It's where <span className="text-white font-semibold underline decoration-brand underline-offset-8">discipline becomes routine</span>, effort becomes progress, and your goals become <span className="text-brand font-semibold">measurable results</span>.
             </p>
             <p className="text-sm text-zinc-400 font-light leading-relaxed">
-              Founded in Nana Varachha, Surat with one singular standard: to eliminate gimmicks, generic routines, and crowded chaos. We deliver an athletic environment engineered for serious lifters, busy professionals, and transformation candidates.
+              Established in Yogi Chowk, Nana Varachha, Surat with one singular standard: to eliminate gimmicks, generic routines, and crowded chaos. We deliver an athletic environment engineered for serious lifters, busy professionals, and transformation candidates.
             </p>
           </div>
 

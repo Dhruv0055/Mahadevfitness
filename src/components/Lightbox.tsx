@@ -61,7 +61,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
         <div className="absolute top-0 left-0 right-0 p-4 sm:p-6 flex items-center justify-between z-20">
           <div className="flex items-center space-x-3">
             <span className="text-xs font-bold tracking-[0.25em] text-brand uppercase">
-              THE BODY LAB SURAT
+              MAHADEV FITNESS SURAT
             </span>
             <span className="text-zinc-600">/</span>
             <span className="text-xs text-zinc-400 uppercase tracking-widest font-mono">
@@ -129,7 +129,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
               {currentItem.title}
             </h4>
             <p className="text-xs text-zinc-400 font-light mt-1">
-              Nana Varachha, Surat Facility Floor
+              Yogi Chowk, Nana Varachha, Surat Facility Floor
             </p>
           </div>
         </motion.div>

@@ -11,18 +11,18 @@ export const FacilitiesGallery: React.FC = () => {
   const facilities: FacilityItem[] = [
     {
       id: 'f1',
-      title: 'Hammer Strength Power & Olympic Arena',
-      category: 'HAMMER STRENGTH',
+      title: 'Olympic Dumbbell & Free Weight Floor',
+      category: 'FREE WEIGHTS',
       image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1200&q=80',
-      alt: 'Hammer Strength plate loaded stations and Olympic barbells at The Body Lab Surat',
+      alt: 'Heavy dumbbells and Olympic barbells at Mahadev Fitness Gym Surat',
       span: 'md:col-span-2 md:row-span-2'
     },
     {
       id: 'f2',
-      title: 'Life Fitness Biomechanical Machines',
-      category: 'LIFE FITNESS',
+      title: 'Biomechanical Plate-Loaded Stations',
+      category: 'MACHINES',
       image: 'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=800&q=80',
-      alt: 'Selectorized and plate-loaded Life Fitness strength equipment',
+      alt: 'Selectorized and plate-loaded strength equipment at Mahadev Fitness',
       span: 'md:col-span-1 md:row-span-1'
     },
     {
@@ -35,31 +35,31 @@ export const FacilitiesGallery: React.FC = () => {
     },
     {
       id: 'f4',
-      title: 'Life Fitness Cardio Deck & Stairmasters',
+      title: 'Cardio Deck & Endurance Stations',
       category: 'CARDIO',
       image: 'https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=800&q=80',
-      alt: 'Interactive touch treadmills and stairmasters',
+      alt: 'High-performance treadmills and cardio stations',
       span: 'md:col-span-1 md:row-span-1'
     },
     {
       id: 'f5',
-      title: 'Steam Bath & Luxury Recovery Suites',
-      category: 'RECOVERY',
+      title: 'Functional Training & Core Conditioning',
+      category: 'STRENGTH',
       image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80',
-      alt: 'Luxury steam bath, showers, and locker rooms',
+      alt: 'Functional movement and mobility zone',
       span: 'md:col-span-1 md:row-span-1'
     },
     {
       id: 'f6',
-      title: 'Millennium Business Hub (MBH-1) Luxury Floor',
+      title: 'Spacious Mansarovar Society Workout Floor',
       category: 'INTERIORS',
       image: 'https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=1200&q=80',
-      alt: 'Spacious luxury gym interior at 2nd Floor MBH-1 Nana Varachha Surat',
+      alt: 'Spacious clean gym interior at Yogi Chowk Nana Varachha Surat',
       span: 'md:col-span-2 md:row-span-1'
     }
   ];
 
-  const filters = ['ALL', 'HAMMER STRENGTH', 'LIFE FITNESS', 'STRENGTH', 'CARDIO', 'RECOVERY'];
+  const filters = ['ALL', 'FREE WEIGHTS', 'MACHINES', 'STRENGTH', 'CARDIO', 'INTERIORS'];
 
   const filteredFacilities = activeFilter === 'ALL' 
     ? facilities 
@@ -92,14 +92,14 @@ export const FacilitiesGallery: React.FC = () => {
           <div>
             <div className="flex items-center space-x-2 text-[#FF2626] font-mono text-[10px] sm:text-xs tracking-widest uppercase mb-1.5 sm:mb-3 font-bold">
               <span className="w-3 sm:w-4 h-[2px] bg-[#FF2626]" />
-              <span>THE BODY LAB / SURAT</span>
+              <span>MAHADEV FITNESS / SURAT</span>
             </div>
             <h2 className="font-display text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-none">
               BUILT FOR <span className="text-[#FF2626]">SERIOUS</span> TRAINING.
             </h2>
           </div>
           <p className="mt-2 md:mt-0 text-xs sm:text-base text-zinc-400 max-w-md font-light leading-relaxed">
-            Surat’s official Life Fitness, Hammer Strength & luxury recovery floor.
+            Surat’s dedicated strength, Olympic free weights & transformation floor in Yogi Chowk.
           </p>
         </motion.div>
 

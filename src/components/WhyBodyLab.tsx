@@ -6,27 +6,27 @@ export const WhyBodyLab: React.FC = () => {
   const features = [
     {
       number: '01',
-      title: 'HAMMER STRENGTH & LIFE FITNESS',
-      tag: 'Official Setup',
-      description: 'Surat’s premier floor equipped with heavy plate-loaded and selectorized biomechanical machines.'
+      title: 'HEAVY OLYMPIC & STRENGTH GEAR',
+      tag: 'Strength Hub',
+      description: 'Surat’s premier workout floor equipped with high-grade dumbbells, barbells, and plate-loaded biomechanical machines.'
     },
     {
       number: '02',
-      title: 'LUXURY MBH-1 SPACES & STEAM SPA',
-      tag: 'Luxury Gym',
-      description: 'Spacious 2nd-floor facility at Millennium Business Hub with steam bath and luxury locker suites.'
+      title: 'SPACIOUS & HYGIENIC FLOOR',
+      tag: 'Spacious Space',
+      description: 'Clean, well-ventilated workout environment located at Mansarovar Society, Yogi Chowk with dedicated muscle zones.'
     },
     {
       number: '03',
       title: 'MEASURABLE 1-ON-1 PROGRESSION',
-      tag: 'Coaching',
-      description: 'Progressive overload tracking, form screening, and custom nutrition splits for real gains.'
+      tag: 'Personal Coaching',
+      description: 'Custom split routines, form guidance, and personalized nutrition protocols designed for sustainable transformations.'
     },
     {
       number: '04',
-      title: 'PRIME NANA VARACHHA GROUND',
-      tag: 'Opp. Zoo Road',
-      description: 'High energy community opposite Zoo Road, Sarthana Jakat Naka. Open 7 days a week.'
+      title: 'PRIME YOGI CHOWK LOCATION',
+      tag: 'Near Ganga Jamuna',
+      description: 'Easily accessible on Yogi Chowk Road, Nana Varachha. Convenient morning & evening training shifts.'
     }
   ];
 
@@ -45,10 +45,10 @@ export const WhyBodyLab: React.FC = () => {
           <div>
             <div className="flex items-center space-x-2 text-[#FF2626] font-mono text-[10px] sm:text-xs tracking-widest uppercase mb-1.5 sm:mb-2 font-bold">
               <span className="w-3 sm:w-4 h-[2px] bg-[#FF2626]" />
-              <span>THE BODY LAB ADVANTAGE</span>
+              <span>MAHADEV FITNESS ADVANTAGE</span>
             </div>
             <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-none">
-              WHY THE <span className="text-[#FF2626]">BODY LAB</span>
+              WHY <span className="text-[#FF2626]">MAHADEV FITNESS</span>
             </h2>
           </div>
           <p className="mt-2 md:mt-0 text-xs sm:text-sm text-zinc-400 max-w-sm font-normal">

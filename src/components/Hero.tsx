@@ -105,7 +105,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartJourney, onExploreGym }) => {
           <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-[#0E1015]/90 border border-white/10 backdrop-blur-md shadow-xl">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-zinc-200 font-bold">
-              Open Daily • 5:30 AM – 10:00 PM
+              5.0 ★ Top Rated • Mansarovar Society, Yogi Chowk
             </span>
           </div>
         </motion.div>
@@ -117,7 +117,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartJourney, onExploreGym }) => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[9.5rem] font-black tracking-[-0.02em] uppercase text-white leading-[0.94] mb-4 sm:mb-6 max-w-5xl"
         >
-          <span className="sr-only">The Body Lab Gym Surat | </span>
+          <span className="sr-only">Mahadev Fitness Gym Surat | </span>
           BUILD YOUR<br />
           <span className="text-white">
             STRONGEST
@@ -134,7 +134,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartJourney, onExploreGym }) => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-xs sm:text-base md:text-lg text-zinc-300 font-normal max-w-xl mx-auto leading-relaxed mb-6 sm:mb-8"
         >
-          Surat’s premier luxury fitness centre with official Hammer Strength & Life Fitness setup.
+          Surat’s premier fitness ground in Yogi Chowk with complete Olympic strength setup, high-energy environment & result-driven coaching.
         </motion.p>
 
         {/* Action Buttons - Side-by-side on mobile */}
@@ -169,32 +169,32 @@ export const Hero: React.FC<HeroProps> = ({ onStartJourney, onExploreGym }) => {
         >
           <div className="pl-2.5 sm:pl-4 border-l-2 border-[#FF2626] transition-colors py-0.5">
             <span className="text-[8px] sm:text-[10px] font-mono uppercase tracking-widest text-[#FF2626] font-bold block mb-0.5 truncate">
-              EQUIPMENT
+              RATING
             </span>
             <span className="font-display text-xs sm:text-xl font-bold text-white block leading-tight">
-              Hammer Strength
+              5.0 / 5.0 ★
             </span>
-            <span className="text-[9px] sm:text-[11px] text-zinc-400 font-normal hidden sm:block">Official Life Fitness</span>
+            <span className="text-[9px] sm:text-[11px] text-zinc-400 font-normal hidden sm:block">108+ Verified Reviews</span>
           </div>
 
           <div className="pl-2.5 sm:pl-4 border-l-2 border-white/20 hover:border-[#FF2626] transition-colors py-0.5">
             <span className="text-[8px] sm:text-[10px] font-mono uppercase tracking-widest text-zinc-400 font-bold block mb-0.5 truncate">
-              RECOVERY
+              FACILITY
             </span>
             <span className="font-display text-xs sm:text-xl font-bold text-white block leading-tight">
-              Steam & Spa
+              Olympic Strength
             </span>
-            <span className="text-[9px] sm:text-[11px] text-zinc-400 font-normal hidden sm:block">Luxury Showers</span>
+            <span className="text-[9px] sm:text-[11px] text-zinc-400 font-normal hidden sm:block">Spacious & Clean Floor</span>
           </div>
 
           <div className="pl-2.5 sm:pl-4 border-l-2 border-[#FF2626] transition-colors py-0.5">
             <span className="text-[8px] sm:text-[10px] font-mono uppercase tracking-widest text-[#FF2626] font-bold block mb-0.5 truncate">
-              TRAINING
+              COACHING
             </span>
             <span className="font-display text-xs sm:text-xl font-bold text-white block leading-tight">
               1-on-1 Mentors
             </span>
-            <span className="text-[9px] sm:text-[11px] text-zinc-400 font-normal hidden sm:block">Custom Split & Diet</span>
+            <span className="text-[9px] sm:text-[11px] text-zinc-400 font-normal hidden sm:block">Custom Splits & Diet</span>
           </div>
         </motion.div>
 

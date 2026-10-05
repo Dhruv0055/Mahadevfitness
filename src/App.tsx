@@ -72,7 +72,7 @@ export const App: React.FC = () => {
           onExploreGym={scrollToFacilities}
         />
 
-        {/* Section 2: Why The Body Lab */}
+        {/* Section 2: Why Mahadev Fitness */}
         <WhyBodyLab />
 
         {/* Section 3: Training Disciplines */}

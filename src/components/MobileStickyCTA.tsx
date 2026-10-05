@@ -8,7 +8,7 @@ interface MobileStickyCTAProps {
 export const MobileStickyCTA: React.FC<MobileStickyCTAProps> = ({ onJoinClick }) => {
   const handleWhatsApp = () => {
     window.open(
-      'https://wa.me/918320102460?text=Hi%20The%20Body%20Lab%20Surat,%20I%20would%20like%20to%20inquire%20about%20gym%20membership.',
+      'https://wa.me/918320102460?text=Hi%20Mahadev%20Fitness%20Gym%20Surat,%20I%20would%20like%20to%20inquire%20about%20gym%20membership.',
       '_blank'
     );
   };

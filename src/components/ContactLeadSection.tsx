@@ -42,7 +42,7 @@ export const ContactLeadSection: React.FC<ContactLeadSectionProps> = ({ preselec
 
   const handleWhatsAppDirect = () => {
     const text = encodeURIComponent(
-      `Hello The Body Lab Surat! I would like to enquire about membership for ${formData.fitnessGoal || 'training'}.`
+      `Hello Mahadev Fitness Gym Surat! I would like to enquire about membership for ${formData.fitnessGoal || 'training'}.`
     );
     window.open(`https://wa.me/918320102460?text=${text}`, '_blank');
   };
@@ -68,7 +68,7 @@ export const ContactLeadSection: React.FC<ContactLeadSectionProps> = ({ preselec
             READY TO <span className="text-[#FF2626]">START?</span>
           </h2>
           <p className="text-xs sm:text-sm text-zinc-400 font-normal">
-            Reach our front desk directly in Nana Varachha or request a consultation.
+            Reach our front desk directly at Mansarovar Society, Yogi Chowk or request a consultation.
           </p>
         </motion.div>
 
@@ -134,7 +134,7 @@ export const ContactLeadSection: React.FC<ContactLeadSectionProps> = ({ preselec
                       REQUEST MEMBERSHIP CONSULTATION
                     </h3>
                     <p className="text-xs text-zinc-400 font-normal mt-1">
-                      Our front desk at Nana Varachha, Surat will contact you to arrange your pass.
+                      Our front desk at Yogi Chowk, Surat will contact you to arrange your pass.
                     </p>
                   </div>
 
@@ -249,7 +249,7 @@ export const ContactLeadSection: React.FC<ContactLeadSectionProps> = ({ preselec
                   </h3>
 
                   <p className="text-xs sm:text-sm text-zinc-300 font-normal max-w-md mx-auto mb-6 sm:mb-8 leading-relaxed">
-                    Thanks! The Body Lab team will contact you shortly to confirm your session and membership options.
+                    Thanks! The Mahadev Fitness team will contact you shortly to confirm your session and membership options.
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 w-full max-w-xs">

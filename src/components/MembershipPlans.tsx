@@ -78,7 +78,7 @@ export const MembershipPlans: React.FC<MembershipPlansProps> = ({ onSelectPlan }
             CHOOSE YOUR <span className="text-[#FF2626]">COMMITMENT.</span>
           </h2>
           <p className="text-sm sm:text-base text-zinc-400 font-normal leading-relaxed">
-            Goal-oriented membership tiers tailored to your training cadence. Connect with our desk in Nana Varachha for current seasonal packages.
+            Goal-oriented membership tiers tailored to your training cadence. Connect with our front desk at Yogi Chowk, Nana Varachha for current plans.
           </p>
         </motion.div>
 
@@ -180,7 +180,7 @@ export const MembershipPlans: React.FC<MembershipPlansProps> = ({ onSelectPlan }
         <div className="mt-8 sm:mt-12 text-center text-xs text-zinc-500">
           Looking for trainer allocation or corporate memberships?{' '}
           <a href="#contact" className="text-[#FF2626] underline font-semibold hover:text-white transition-colors">
-            Speak directly with The Body Lab team.
+            Speak directly with the Mahadev Fitness team.
           </a>
         </div>
 

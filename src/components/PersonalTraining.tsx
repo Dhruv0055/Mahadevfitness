@@ -30,7 +30,7 @@ export const PersonalTraining: React.FC<PersonalTrainingProps> = ({ onEnquirePT 
             <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0E1015] shadow-2xl group hover:border-[#FF2626]/50 transition-all duration-300">
               <img
                 src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80"
-                alt="Personal coaching at The Body Lab Surat"
+                alt="Personal coaching at Mahadev Fitness Gym Surat"
                 className="w-full h-[320px] sm:h-[480px] object-cover object-top filter brightness-[0.7] contrast-[1.1] group-hover:scale-105 transition-transform duration-700 ease-out"
                 loading="lazy"
               />

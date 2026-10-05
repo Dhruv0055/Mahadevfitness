@@ -10,29 +10,29 @@ export const TestimonialSlider: React.FC = () => {
     {
       id: 't1',
       name: 'Parth Patel',
-      role: 'Nana Varachha, Surat',
+      role: 'Mansarovar Society, Surat',
       rating: 5,
-      text: 'Hands down the best gym in Surat. The official Hammer Strength and Life Fitness setup makes every heavy lift feel biomechanically smooth. The luxury space at MBH-1 is unmatched.',
+      text: 'Best gym in Yogi Chowk area. Very clean workout environment, heavy dumbbell collection, and helpful trainers. The training atmosphere is pure energy.',
       verified: true,
-      timeAgo: 'Google Review'
+      timeAgo: 'Verified Review'
     },
     {
       id: 't2',
       name: 'Sneha Desai',
-      role: 'Sarthana Jakat Naka',
+      role: 'Nana Varachha',
       rating: 5,
-      text: 'Joined for body recomposition and strength. The 1-on-1 coaching helped me lose 11 kg in 3 months safely. Plus, having the steam recovery room after training is amazing!',
+      text: 'Joined for fat loss and strength conditioning. The trainers give personal attention and guide proper form on every exercise. Lost 9 kg safely with their guidance!',
       verified: true,
-      timeAgo: 'Google Review'
+      timeAgo: 'Verified Review'
     },
     {
       id: 't3',
       name: 'Kevin Gajera',
-      role: 'Varachha Lifter',
+      role: 'Yogi Chowk Lifter',
       rating: 5,
-      text: 'Huge 6,000+ sq. ft floor opposite Zoo Road with heavy plate-loaded stations and calibrated bars. Clean atmosphere, disciplined lifters, and genuine coaches.',
+      text: 'Spacious workout floor near Ganga Jamuna with heavy plate-loaded stations and calibrated bars. Disciplined crowd and great support from the trainers.',
       verified: true,
-      timeAgo: 'Google Review'
+      timeAgo: 'Verified Review'
     }
   ];
 
@@ -69,13 +69,13 @@ export const TestimonialSlider: React.FC = () => {
           {/* Controls */}
           <div className="mt-4 md:mt-0 flex items-center space-x-3 sm:space-x-4">
             <a
-              href="https://maps.app.goo.gl/7wocmV93Zsbbyy3B9"
+              href="https://share.google/2BjOAnNhgow9Tl5RB"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-md bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-xs text-zinc-300 transition-colors font-semibold"
             >
               <span className="text-amber-400 font-bold">★★★★★</span>
-              <span className="font-mono text-[11px] sm:text-xs">Google Reviews</span>
+              <span className="font-mono text-[11px] sm:text-xs">5.0 (108+ Reviews)</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#FF2626]" />
             </a>
 

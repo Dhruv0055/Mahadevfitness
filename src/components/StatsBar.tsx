@@ -5,28 +5,28 @@ import { Dumbbell, UserCheck, Shield, Award } from 'lucide-react';
 export const StatsBar: React.FC = () => {
   const pillars = [
     {
-      title: 'DEDICATED FACILITY',
-      label: '2nd Floor, MBH-1 Sarthana',
+      title: 'PRIME LOCATION',
+      label: 'Mansarovar, Yogi Chowk',
       icon: Dumbbell,
-      sub: 'Spacious training floor'
+      sub: 'Near Ganga Jamuna, Surat'
     },
     {
-      title: 'BIOMECHANICAL GEAR',
-      label: 'Selected & Plate Loaded',
+      title: '5.0 ★ TOP RATED',
+      label: '108+ Verified Reviews',
       icon: Award,
-      sub: 'Heavy-duty ergonomics'
+      sub: 'Top-rated in Yogi Chowk'
     },
     {
       title: '1-ON-1 COACHING',
-      label: 'Certified Personal Mentors',
+      label: 'Certified Fitness Mentors',
       icon: UserCheck,
-      sub: 'Tailored protocols'
+      sub: 'Tailored diet & training'
     },
     {
-      title: 'HIGH ENERGY COMMUNITY',
-      label: 'Nana Varachha, Surat',
+      title: 'TWO DAILY SESSIONS',
+      label: '5:30-10:30 AM & 5-10 PM',
       icon: Shield,
-      sub: 'Results-driven culture'
+      sub: 'Morning & Evening shifts'
     }
   ];
 
