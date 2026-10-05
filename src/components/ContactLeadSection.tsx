@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, MessageSquare, CheckCircle, ArrowUpRight, Dumbbell } from 'lucide-react';
+import { Phone, MessageSquare, CheckCircle, ArrowRight, Dumbbell } from 'lucide-react';
 import type { LeadFormData } from '../types';
 
 interface ContactLeadSectionProps {
@@ -48,76 +48,80 @@ export const ContactLeadSection: React.FC<ContactLeadSectionProps> = ({ preselec
   };
 
   return (
-    <section id="contact" className="relative py-12 sm:py-20 lg:py-28 bg-[#08090C] border-t border-white/[0.08] overflow-hidden">
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-3xl mx-auto mb-6 sm:mb-12"
-        >
-          <div className="inline-flex items-center space-x-2 text-[#FF2626] font-mono text-xs tracking-widest uppercase mb-2 font-bold">
-            <span className="w-4 h-[2px] bg-[#FF2626]" />
-            <span>START YOUR TRAINING</span>
-            <span className="w-4 h-[2px] bg-[#FF2626]" />
-          </div>
-          <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-none mb-2 sm:mb-3">
-            READY TO <span className="text-[#FF2626]">START?</span>
-          </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 font-normal">
-            Reach our front desk directly at Mansarovar Society, Yogi Chowk or request a consultation.
-          </p>
-        </motion.div>
+    <section id="contact" className="relative py-20 sm:py-28 lg:py-36 bg-[#08090C] border-t border-white/[0.08] overflow-hidden text-white">
+      
+      {/* Background Red Glow */}
+      <div className="absolute top-1/3 -right-24 w-96 h-96 bg-[#FF0336]/15 rounded-full blur-[140px] pointer-events-none" />
 
-        {/* Action Buttons - side by side 3-col on mobile! */}
-        <motion.div
-          initial={{ opacity: 0, y: 35, scale: 0.97 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="grid grid-cols-3 gap-2 sm:gap-4 max-w-2xl mx-auto mb-8 sm:mb-12"
-        >
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+        
+        {/* Section Header (Gymate Style) */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block mb-3"
+          >
+            <div className="brush-badge bg-[#FF0336] text-white text-xs sm:text-sm font-black tracking-widest uppercase">
+              CONTACT US
+            </div>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase text-white leading-[0.92] tracking-tight mb-3"
+          >
+            GET IN TOUCH <span className="text-[#FF0336]">WITH US</span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-xs sm:text-sm md:text-base text-zinc-400 font-normal max-w-xl mx-auto leading-relaxed"
+          >
+            Speak directly with our front desk at Mansarovar Society, Yogi Chowk or reserve your workout shift online.
+          </motion.p>
+        </div>
+
+        {/* Quick Action Triggers */}
+        <div className="grid grid-cols-3 gap-2.5 sm:gap-4 max-w-2xl mx-auto mb-10 sm:mb-14">
           <button
             onClick={() => {
               const el = document.getElementById('lead-form');
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="btn-primary-red flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2 py-3 sm:py-3.5 px-2 sm:px-4 text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-xl shadow-lg hover:-translate-y-1 transition-all"
+            className="bg-[#FF0336] hover:bg-[#E00230] text-white flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2 py-3 sm:py-3.5 px-2 sm:px-4 text-[10px] sm:text-xs font-black uppercase tracking-wider rounded-xl shadow-lg active:scale-95 transition-all"
           >
             <Dumbbell className="w-4 h-4 shrink-0" />
             <span className="truncate">JOIN GYM</span>
           </button>
 
           <a
-            href="tel:+918320102460"
-            className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2 py-3 sm:py-3.5 px-2 sm:px-4 bg-[#0E1015] hover:bg-zinc-900 hover:border-[#FF2626]/50 text-white border border-white/10 text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-md hover:-translate-y-1"
+            href="tel:08320102460"
+            className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2 py-3 sm:py-3.5 px-2 sm:px-4 bg-[#141720] hover:bg-zinc-900 border border-white/10 hover:border-[#FF0336] text-white text-[10px] sm:text-xs font-black uppercase tracking-wider rounded-xl transition-all shadow-md active:scale-95"
           >
-            <Phone className="w-4 h-4 text-[#FF2626] shrink-0" />
+            <Phone className="w-4 h-4 text-[#FF0336] shrink-0" />
             <span className="truncate">CALL NOW</span>
           </a>
 
           <button
             onClick={handleWhatsAppDirect}
-            className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2 py-3 sm:py-3.5 px-2 sm:px-4 bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 text-[#25D366] hover:text-white text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-md hover:-translate-y-1"
+            className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2 py-3 sm:py-3.5 px-2 sm:px-4 bg-[#25D366]/20 hover:bg-[#25D366]/30 border border-[#25D366]/50 text-[#25D366] hover:text-white text-[10px] sm:text-xs font-black uppercase tracking-wider rounded-xl transition-all shadow-md active:scale-95"
           >
             <MessageSquare className="w-4 h-4 shrink-0" />
             <span className="truncate">WHATSAPP</span>
           </button>
-        </motion.div>
+        </div>
 
         {/* Lead Form Box */}
-        <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.97 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          id="lead-form"
-          className="max-w-2xl mx-auto"
-        >
-          <div className="bg-[#0E1015] p-5 sm:p-10 rounded-xl sm:rounded-2xl border border-white/[0.08] shadow-2xl relative">
+        <div id="lead-form" className="max-w-2xl mx-auto">
+          <div className="bg-[#12141A] p-6 sm:p-10 rounded-3xl border-2 border-white/10 shadow-2xl relative">
             
             <AnimatePresence mode="wait">
               {!isSubmitted ? (
@@ -127,21 +131,21 @@ export const ContactLeadSection: React.FC<ContactLeadSectionProps> = ({ preselec
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   onSubmit={handleSubmit}
-                  className="space-y-4 sm:space-y-5"
+                  className="space-y-5"
                 >
-                  <div className="border-b border-white/[0.08] pb-3 sm:pb-4 mb-4 sm:mb-6">
-                    <h3 className="font-display text-xl sm:text-2xl text-white font-bold tracking-tight">
+                  <div className="border-b border-white/10 pb-4 mb-4">
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#FF0336] font-bold block mb-1">
+                      DESK INQUIRY & PASSES
+                    </span>
+                    <h3 className="font-display text-2xl sm:text-3xl text-white font-black uppercase tracking-tight">
                       REQUEST MEMBERSHIP CONSULTATION
                     </h3>
-                    <p className="text-xs text-zinc-400 font-normal mt-1">
-                      Our front desk at Yogi Chowk, Surat will contact you to arrange your pass.
-                    </p>
                   </div>
 
-                  {/* Full Name & Phone in 2 cols on mobile */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                  {/* Full Name & Phone in 2 cols */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[10px] sm:text-xs font-mono uppercase tracking-wider text-zinc-400 mb-1.5 font-semibold">
+                      <label className="block text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-1.5 font-bold">
                         Full Name *
                       </label>
                       <input
@@ -150,12 +154,12 @@ export const ContactLeadSection: React.FC<ContactLeadSectionProps> = ({ preselec
                         placeholder="e.g. Rahul Patel"
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                        className="w-full bg-[#08090C] border border-white/10 focus:border-[#FF2626] focus:ring-1 focus:ring-[#FF2626] rounded-lg px-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-white placeholder-zinc-600 focus:outline-none transition-colors"
+                        className="w-full bg-black/60 border border-white/10 focus:border-[#FF0336] focus:ring-1 focus:ring-[#FF0336] rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none transition-colors"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[10px] sm:text-xs font-mono uppercase tracking-wider text-zinc-400 mb-1.5 font-semibold">
+                      <label className="block text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-1.5 font-bold">
                         Phone Number *
                       </label>
                       <input
@@ -164,23 +168,23 @@ export const ContactLeadSection: React.FC<ContactLeadSectionProps> = ({ preselec
                         placeholder="+91 83201 02460"
                         value={formData.phoneNumber}
                         onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
-                        className="w-full bg-[#08090C] border border-white/10 focus:border-[#FF2626] focus:ring-1 focus:ring-[#FF2626] rounded-lg px-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-white placeholder-zinc-600 focus:outline-none transition-colors"
+                        className="w-full bg-black/60 border border-white/10 focus:border-[#FF0336] focus:ring-1 focus:ring-[#FF0336] rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
 
                   {/* Fitness Goal */}
                   <div>
-                    <label className="block text-[10px] sm:text-xs font-mono uppercase tracking-wider text-zinc-400 mb-1.5 font-semibold">
+                    <label className="block text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-1.5 font-bold">
                       Primary Fitness Goal *
                     </label>
                     <select
                       value={formData.fitnessGoal}
                       onChange={(e) => setFormData({ ...formData, fitnessGoal: e.target.value })}
-                      className="w-full bg-[#08090C] border border-white/10 focus:border-[#FF2626] focus:ring-1 focus:ring-[#FF2626] rounded-lg px-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-white focus:outline-none transition-colors"
+                      className="w-full bg-black/60 border border-white/10 focus:border-[#FF0336] focus:ring-1 focus:ring-[#FF0336] rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition-colors"
                     >
                       {goalOptions.map((goal) => (
-                        <option key={goal} value={goal} className="bg-[#0E1015] text-white">
+                        <option key={goal} value={goal} className="bg-[#12141A] text-white">
                           {goal}
                         </option>
                       ))}
@@ -189,19 +193,19 @@ export const ContactLeadSection: React.FC<ContactLeadSectionProps> = ({ preselec
 
                   {/* Preferred Contact Method */}
                   <div>
-                    <label className="block text-[10px] sm:text-xs font-mono uppercase tracking-wider text-zinc-400 mb-1.5 font-semibold">
+                    <label className="block text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-1.5 font-bold">
                       Preferred Contact Method
                     </label>
-                    <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                    <div className="grid grid-cols-3 gap-2.5">
                       {contactMethods.map((method) => (
                         <button
                           key={method}
                           type="button"
                           onClick={() => setFormData({ ...formData, preferredContact: method })}
-                          className={`py-2 sm:py-2.5 px-2 rounded-lg text-[10px] sm:text-xs font-mono uppercase tracking-wider border transition-all truncate ${
+                          className={`py-2.5 px-3 rounded-lg text-xs font-mono font-bold uppercase tracking-wider transition-all border ${
                             formData.preferredContact === method
-                              ? 'bg-[#FF2626] text-white border-[#FF2626] shadow-md font-bold'
-                              : 'bg-[#08090C] border-white/10 text-zinc-400 hover:text-white font-semibold'
+                              ? 'bg-[#FF0336] text-white border-[#FF0336] shadow-md'
+                              : 'bg-black/50 text-zinc-400 border-white/10 hover:text-white'
                           }`}
                         >
                           {method}
@@ -210,73 +214,74 @@ export const ContactLeadSection: React.FC<ContactLeadSectionProps> = ({ preselec
                     </div>
                   </div>
 
-                  {/* Submit Button */}
-                  <div className="pt-2 sm:pt-4">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="btn-primary-red w-full py-3.5 sm:py-4 px-6 text-xs sm:text-sm font-bold uppercase tracking-wider rounded-lg flex items-center justify-center space-x-2 group disabled:opacity-50 shadow-lg"
-                    >
-                      {isSubmitting ? (
-                        <span>PROCESSING...</span>
-                      ) : (
-                        <>
-                          <span>START MY JOURNEY</span>
-                          <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                        </>
-                      )}
-                    </button>
+                  {/* Message */}
+                  <div>
+                    <label className="block text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-1.5 font-bold">
+                      Note or Timing Preference (Optional)
+                    </label>
+                    <textarea
+                      rows={2}
+                      placeholder="e.g. Interested in morning shift (5:30 AM) or 1-on-1 personal trainer."
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full bg-black/60 border border-white/10 focus:border-[#FF0336] focus:ring-1 focus:ring-[#FF0336] rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none transition-colors resize-none"
+                    />
                   </div>
 
-                  <p className="text-[10px] sm:text-[11px] font-mono text-center text-zinc-500">
-                    🔒 Privacy Assured. No spam. You will only receive membership details.
-                  </p>
+                  {/* Submit Button with Gymate Offset Frame */}
+                  <div className="pt-2">
+                    <div className="relative group inline-block w-full">
+                      <div className="absolute top-1 left-1 w-full h-full border-2 border-white/40 group-hover:border-[#FF0336] transition-all pointer-events-none" />
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="relative w-full bg-[#FF0336] hover:bg-[#E00230] text-white py-4 px-6 text-xs sm:text-sm font-black uppercase tracking-wider flex items-center justify-center space-x-2 transition-transform active:translate-x-0.5 active:translate-y-0.5 shadow-xl shadow-[#FF0336]/30 disabled:opacity-50"
+                      >
+                        <span>{isSubmitting ? 'PROCESSING...' : 'SUBMIT MEMBERSHIP INQUIRY'}</span>
+                        <ArrowRight className="w-4 h-4 stroke-[3]" />
+                      </button>
+                    </div>
+                  </div>
                 </motion.form>
               ) : (
-                /* Post Submission */
                 <motion.div
                   key="success"
-                  initial={{ opacity: 0, scale: 0.98 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="py-8 sm:py-12 px-2 text-center flex flex-col items-center"
+                  className="py-12 text-center space-y-4"
                 >
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#FF2626]/20 border border-[#FF2626] text-[#FF2626] flex items-center justify-center mb-4 sm:mb-6">
-                    <CheckCircle className="w-6 h-6 sm:w-7 sm:h-7" />
+                  <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center mx-auto">
+                    <CheckCircle className="w-8 h-8" />
                   </div>
-
-                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight mb-2 sm:mb-3">
-                    CONSULTATION REQUESTED
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-zinc-300 font-normal max-w-md mx-auto mb-6 sm:mb-8 leading-relaxed">
-                    Thanks! The Mahadev Fitness team will contact you shortly to confirm your session and membership options.
+                  <h4 className="font-display text-3xl font-black uppercase text-white tracking-tight">
+                    INQUIRY RECEIVED!
+                  </h4>
+                  <p className="text-zinc-300 text-sm max-w-md mx-auto leading-relaxed">
+                    Thank you, <strong>{formData.fullName}</strong>. Our front desk at Yogi Chowk, Surat will contact you via <strong>{formData.preferredContact}</strong> shortly.
                   </p>
-
-                  <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 w-full max-w-xs">
-                    <button
-                      onClick={handleWhatsAppDirect}
-                      className="w-full py-2.5 sm:py-3 px-4 bg-[#25D366] hover:bg-[#20ba5a] text-black font-bold uppercase text-xs tracking-wider rounded-lg flex items-center justify-center space-x-2 shadow-lg"
-                    >
-                      <MessageSquare className="w-4 h-4" />
-                      <span>Chat on WhatsApp</span>
-                    </button>
-                    <button
-                      onClick={() => setIsSubmitted(false)}
-                      className="w-full py-2.5 sm:py-3 px-4 bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-bold uppercase tracking-wider rounded-lg border border-zinc-700"
-                    >
-                      Submit Another
-                    </button>
-                  </div>
+                  <button
+                    onClick={() => {
+                      setIsSubmitted(false);
+                      setFormData({
+                        fullName: '',
+                        phoneNumber: '',
+                        fitnessGoal: 'Muscle Building',
+                        preferredContact: 'WhatsApp',
+                        message: ''
+                      });
+                    }}
+                    className="mt-4 px-6 py-2.5 bg-zinc-800 hover:bg-zinc-700 text-white rounded-lg text-xs font-mono font-bold uppercase tracking-wider"
+                  >
+                    SEND ANOTHER INQUIRY
+                  </button>
                 </motion.div>
               )}
             </AnimatePresence>
 
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </section>
   );
 };
-
-

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowRight, Trophy, Flame, Dumbbell, Clock } from 'lucide-react';
 
 interface ResultsShowcaseProps {
   onStartTransformation: () => void;
@@ -10,163 +10,184 @@ export const ResultsShowcase: React.FC<ResultsShowcaseProps> = ({ onStartTransfo
   const stories = [
     {
       name: 'Hardik V.',
-      tag: 'Fat Loss & Conditioning',
+      tag: 'Fat Loss Protocol',
       stat: '-13 KG',
-      statLabel: 'Body Recomp',
-      duration: '14 Weeks',
+      statLabel: 'Body Recomposition',
+      duration: '14 WEEKS',
       image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80',
-      description: 'Structured progressive split combined with calibrated deficit nutrition.'
+      description: 'Structured progressive split combined with calibrated deficit nutrition at Yogi Chowk floor.',
+      icon: Flame
     },
     {
       name: 'Mehul S.',
       tag: 'Hypertrophy & Mass',
       stat: '+7.5 KG',
-      statLabel: 'Lean Muscle',
-      duration: '20 Weeks',
+      statLabel: 'Lean Muscle Mass',
+      duration: '20 WEEKS',
       image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80',
-      description: 'Progressive overload tension targeting aesthetic balance and symmetry.'
+      description: 'Progressive overload tension targeting upper body symmetry & heavy compound lifts.',
+      icon: Dumbbell
     },
     {
       name: 'Ankit P.',
       tag: 'Strength & Powerlifting',
       stat: '205 KG',
       statLabel: 'Deadlift PR',
-      duration: '16 Weeks',
+      duration: '16 WEEKS',
       image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80',
-      description: 'Biomechanical form calibration and Olympic barbell micro-loading.'
+      description: 'Biomechanical form calibration on Olympic barbells & power platforms.',
+      icon: Trophy
     }
   ];
 
   return (
-    <section id="results" className="relative py-12 sm:py-20 lg:py-28 bg-[#08090C] border-t border-white/[0.08] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="results" className="relative py-20 sm:py-28 lg:py-36 bg-[#0B0D12] border-t border-white/[0.08] overflow-hidden text-white">
+      
+      {/* Background Watermark */}
+      <div className="absolute top-1/4 right-0 z-0 pointer-events-none select-none opacity-5 hidden lg:block">
+        <span className="font-display text-[15rem] font-black uppercase text-white leading-none">
+          SHAPE
+        </span>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Simple Editorial Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-14 pb-4 sm:pb-6 border-b border-white/[0.08]"
-        >
+        {/* Gymate Style Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 pb-6 sm:pb-8 border-b border-white/[0.08]">
           <div>
-            <div className="flex items-center space-x-2 text-[#FF2626] font-mono text-[10px] sm:text-xs tracking-widest uppercase mb-1.5 sm:mb-2 font-bold">
-              <span className="w-3 sm:w-4 h-[2px] bg-[#FF2626]" />
-              <span>MEASURABLE PROGRESS</span>
-            </div>
-            <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-none">
-              RESULTS THAT <span className="text-[#FF2626]">SPEAK.</span>
-            </h2>
-          </div>
-          <p className="mt-2 md:mt-0 text-xs sm:text-sm text-zinc-400 max-w-sm font-normal">
-            Real member transformations built on consistency, coaching, and progressive overload.
-          </p>
-        </motion.div>
-
-        {/* 3 Simple, Clean Visual Transformation Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-16">
-          {stories.map((story, index) => (
             <motion.div
-              key={story.name}
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.65, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative rounded-2xl overflow-hidden border border-white/10 hover:border-[#FF2626]/50 min-h-[380px] sm:min-h-[440px] flex flex-col justify-between p-6 transition-all duration-300 shadow-2xl hover:-translate-y-1"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="mb-3"
             >
-              {/* Image with Dark Vignette */}
-              <img
-                src={story.image}
-                alt={story.name}
-                className="absolute inset-0 w-full h-full object-cover filter brightness-[0.4] group-hover:scale-105 transition-transform duration-700 ease-out"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#08090C] via-[#08090C]/50 to-transparent" />
-
-              {/* Top Row */}
-              <div className="relative z-10 flex items-center justify-between">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#FF2626] font-bold bg-[#FF2626]/20 border border-[#FF2626]/40 px-2.5 py-1 rounded">
-                  {story.tag}
-                </span>
-                <span className="text-[10px] font-mono text-zinc-300 bg-black/60 px-2 py-0.5 rounded border border-white/10 font-medium">
-                  {story.duration}
-                </span>
-              </div>
-
-              {/* Bottom Content */}
-              <div className="relative z-10">
-                <div className="flex items-baseline space-x-2 mb-1">
-                  <span className="font-display text-4xl sm:text-5xl font-black text-white tracking-tight leading-none">
-                    {story.stat}
-                  </span>
-                  <span className="text-xs font-mono uppercase text-[#FF2626] font-bold">
-                    {story.statLabel}
-                  </span>
-                </div>
-
-                <h3 className="font-display text-xl sm:text-2xl font-bold text-white tracking-tight mb-1">
-                  {story.name}
-                </h3>
-                
-                <p className="text-xs text-zinc-300 font-normal leading-relaxed">
-                  {story.description}
-                </p>
+              <div className="brush-badge bg-[#FF0336] text-white text-xs sm:text-sm font-black tracking-widest uppercase">
+                REAL TRANSFORMATIONS
               </div>
             </motion.div>
-          ))}
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="font-display text-4xl sm:text-6xl lg:text-7xl font-black text-white uppercase leading-[0.92] tracking-tight"
+            >
+              WE CAN CHANGE <br className="hidden sm:inline" />
+              <span className="text-[#FF0336] inline-block drop-shadow-[0_0_30px_rgba(255,3,54,0.5)]">
+                YOUR BODY.
+              </span>
+            </motion.h2>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-4 md:mt-0 max-w-md"
+          >
+            <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-4">
+              Real transformations from members right here at Mahadev Fitness Gym, Yogi Chowk. Consistent attendance, certified coaching, and measurable metrics.
+            </p>
+            <div className="flex items-center space-x-2 text-xs font-mono text-emerald-400 font-bold">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>100% Verified Progress Across Morning & Evening Shifts</span>
+            </div>
+          </motion.div>
         </div>
 
-        {/* Minimal Editorial Metric Strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-6 sm:pt-8 border-t border-white/[0.08]"
-        >
-          <div className="pl-3 sm:pl-4 border-l-2 border-[#FF2626]">
-            <span className="font-display text-2xl sm:text-4xl font-black text-white leading-none block">
-              500+
-            </span>
-            <span className="text-[10px] sm:text-xs font-mono uppercase text-zinc-400 font-bold block mt-1">
-              Surat Members
-            </span>
-          </div>
+        {/* 3 High-Impact Transformation Cards (Gymate Style) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+          {stories.map((story, index) => {
+            const IconComp = story.icon;
+            return (
+              <motion.div
+                key={story.name}
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.65, delay: index * 0.1 }}
+                className="group relative rounded-2xl overflow-hidden bg-[#12141A] border border-white/10 hover:border-[#FF0336] transition-all duration-300 shadow-2xl flex flex-col justify-between hover:-translate-y-2"
+              >
+                {/* Photo Top Frame */}
+                <div className="relative h-64 sm:h-72 w-full overflow-hidden">
+                  <img
+                    src={story.image}
+                    alt={story.name}
+                    className="w-full h-full object-cover filter brightness-[0.55] group-hover:scale-108 transition-all duration-700 ease-out"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#12141A] via-transparent to-black/40" />
 
-          <div className="pl-3 sm:pl-4 border-l-2 border-[#FF2626]/40 hover:border-[#FF2626] transition-colors">
-            <span className="font-display text-2xl sm:text-4xl font-black text-white leading-none block">
-              98%
-            </span>
-            <span className="text-[10px] sm:text-xs font-mono uppercase text-zinc-400 font-bold block mt-1">
-              Goal Completion
-            </span>
-          </div>
+                  {/* Top Badges */}
+                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider bg-[#FF0336] text-white px-3 py-1 rounded">
+                      {story.tag}
+                    </span>
+                    <span className="text-[10px] font-mono font-bold text-zinc-300 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded border border-white/10 flex items-center space-x-1">
+                      <Clock className="w-3 h-3 text-[#FF0336]" />
+                      <span>{story.duration}</span>
+                    </span>
+                  </div>
 
-          <div className="pl-3 sm:pl-4 border-l-2 border-[#FF2626]">
-            <span className="font-display text-2xl sm:text-4xl font-black text-white leading-none block">
-              +40KG
-            </span>
-            <span className="text-[10px] sm:text-xs font-mono uppercase text-zinc-400 font-bold block mt-1">
-              Avg. Strength Gain
-            </span>
-          </div>
+                  {/* Floating Stat Indicator */}
+                  <div className="absolute bottom-4 left-4 z-10">
+                    <div className="flex items-baseline space-x-2">
+                      <span className="font-display text-4xl sm:text-5xl font-black text-white tracking-tight leading-none drop-shadow-md">
+                        {story.stat}
+                      </span>
+                      <span className="text-xs font-mono uppercase text-[#FF0336] font-bold">
+                        {story.statLabel}
+                      </span>
+                    </div>
+                  </div>
+                </div>
 
-          <div className="flex items-center md:justify-end">
+                {/* Card Lower Details */}
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center space-x-3 mb-2">
+                      <div className="w-8 h-8 rounded-lg bg-[#FF0336]/15 border border-[#FF0336]/30 flex items-center justify-center text-[#FF0336]">
+                        <IconComp className="w-4 h-4" />
+                      </div>
+                      <h3 className="font-display text-2xl font-black text-white uppercase tracking-tight">
+                        {story.name}
+                      </h3>
+                    </div>
+                    <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                      {story.description}
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={onStartTransformation}
+                    className="w-full py-2.5 px-4 bg-white/[0.05] hover:bg-[#FF0336] text-white text-xs font-bold uppercase tracking-wider rounded-lg border border-white/10 hover:border-[#FF0336] flex items-center justify-center space-x-2 transition-all group/btn"
+                  >
+                    <span>START SIMILAR ROUTINE</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Bottom CTA Banner (Gymate Style) */}
+        <div className="text-center">
+          <div className="relative group inline-block">
+            <div className="absolute top-1.5 left-1.5 w-full h-full border-2 border-white/30 group-hover:border-[#FF0336] transition-all pointer-events-none" />
             <button
               onClick={onStartTransformation}
-              className="btn-primary-red w-full sm:w-auto px-5 py-3 text-xs font-bold uppercase tracking-wider rounded-xl flex items-center justify-center space-x-1.5 shadow-lg active:scale-95"
+              className="relative bg-[#FF0336] group-hover:bg-[#E00230] text-white px-9 sm:px-12 py-4 text-xs sm:text-sm font-black uppercase tracking-wider flex items-center space-x-3 transition-transform active:translate-x-1 active:translate-y-1 shadow-xl shadow-[#FF0336]/30"
             >
-              <span>JOIN NOW</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <span>START YOUR TRANSFORMATION TODAY</span>
+              <ArrowRight className="w-4 h-4 stroke-[3]" />
             </button>
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </section>
   );
 };
-
-
-
-

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Star, ChevronLeft, ChevronRight, Quote, ArrowUpRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Star, ChevronLeft, ChevronRight, Quote, ExternalLink } from 'lucide-react';
 import type { TestimonialItem } from '../types';
 
 export const TestimonialSlider: React.FC = () => {
@@ -10,29 +10,29 @@ export const TestimonialSlider: React.FC = () => {
     {
       id: 't1',
       name: 'Parth Patel',
-      role: 'Mansarovar Society, Surat',
+      role: 'Mansarovar Society Resident',
       rating: 5,
-      text: 'Best gym in Yogi Chowk area. Very clean workout environment, heavy dumbbell collection, and helpful trainers. The training atmosphere is pure energy.',
+      text: 'Best gym in the entire Yogi Chowk area! Very clean and hygienic workout floor, heavy dumbbells up to 40+ kg, and extremely supportive trainers. The workout atmosphere is pure energy and discipline.',
       verified: true,
-      timeAgo: 'Verified Review'
+      timeAgo: 'Google Verified Review'
     },
     {
       id: 't2',
       name: 'Sneha Desai',
-      role: 'Nana Varachha',
+      role: 'Nana Varachha Member',
       rating: 5,
-      text: 'Joined for fat loss and strength conditioning. The trainers give personal attention and guide proper form on every exercise. Lost 9 kg safely with their guidance!',
+      text: 'Joined Mahadev Fitness for weight loss and muscle toning. The trainers give personal attention and correct form on every single exercise. Lost 9 kg safely with their custom diet guidance!',
       verified: true,
-      timeAgo: 'Verified Review'
+      timeAgo: 'Google Verified Review'
     },
     {
       id: 't3',
       name: 'Kevin Gajera',
-      role: 'Yogi Chowk Lifter',
+      role: 'Regular Morning Lifter',
       rating: 5,
-      text: 'Spacious workout floor near Ganga Jamuna with heavy plate-loaded stations and calibrated bars. Disciplined crowd and great support from the trainers.',
+      text: 'Spacious workout floor near Ganga Jamuna with heavy plate-loaded stations and calibrated Olympic barbells. The dual morning and evening shift timings make it super easy for working professionals.',
       verified: true,
-      timeAgo: 'Verified Review'
+      timeAgo: 'Google Verified Review'
     }
   ];
 
@@ -44,113 +44,136 @@ export const TestimonialSlider: React.FC = () => {
     setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
+  const currentReview = testimonials[activeIndex];
+
   return (
-    <section className="relative py-12 sm:py-20 lg:py-28 bg-[#08090C] border-t border-white/[0.08] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 sm:py-28 lg:py-36 bg-[#08090C] border-t border-white/[0.08] overflow-hidden text-white">
+      
+      {/* Background Subtle Watermark */}
+      <div className="absolute -bottom-10 right-10 pointer-events-none select-none opacity-5 hidden lg:block">
+        <span className="font-display text-[16rem] font-black uppercase text-white leading-none">
+          REVIEWS
+        </span>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-16 pb-6 sm:pb-8 border-b border-white/[0.08]"
-        >
+        {/* Gymate Style Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 pb-6 sm:pb-8 border-b border-white/[0.08]">
           <div>
-            <div className="flex items-center space-x-2 text-[#FF2626] font-mono text-xs tracking-widest uppercase mb-3 font-bold">
-              <span className="w-4 h-[2px] bg-[#FF2626]" />
-              <span>MEMBER FEEDBACK</span>
-            </div>
-            <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-none">
-              REAL PEOPLE. <span className="text-[#FF2626]">REAL COMMITMENT.</span>
-            </h2>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="mb-3"
+            >
+              <div className="brush-badge bg-[#FF0336] text-white text-xs sm:text-sm font-black tracking-widest uppercase">
+                TESTIMONIALS
+              </div>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="font-display text-4xl sm:text-6xl lg:text-7xl font-black text-white uppercase leading-[0.92] tracking-tight"
+            >
+              WHAT OUR <br className="hidden sm:inline" />
+              <span className="text-[#FF0336] inline-block drop-shadow-[0_0_30px_rgba(255,3,54,0.5)]">
+                CLIENTS SAY.
+              </span>
+            </motion.h2>
           </div>
 
-          {/* Controls */}
-          <div className="mt-4 md:mt-0 flex items-center space-x-3 sm:space-x-4">
+          <div className="mt-4 md:mt-0 flex items-center space-x-3">
             <a
               href="https://share.google/2BjOAnNhgow9Tl5RB"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-md bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-xs text-zinc-300 transition-colors font-semibold"
+              className="inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-zinc-900 border border-white/10 hover:border-[#FF0336] text-xs font-mono font-bold text-zinc-300 hover:text-white transition-all shadow-md"
             >
               <span className="text-amber-400 font-bold">★★★★★</span>
-              <span className="font-mono text-[11px] sm:text-xs">5.0 (108+ Reviews)</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#FF2626]" />
+              <span>5.0 (108+ Reviews on Google)</span>
+              <ExternalLink className="w-3.5 h-3.5 text-[#FF0336]" />
             </a>
 
-            <div className="flex space-x-1.5 sm:space-x-2">
+            <div className="flex space-x-2">
               <button
                 onClick={handlePrev}
-                className="p-2 sm:p-2.5 rounded-md bg-[#0E1015] hover:bg-[#FF2626] text-white border border-white/10 transition-colors focus:outline-none"
+                className="w-11 h-11 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white flex items-center justify-center transition-all active:scale-95 shadow-md"
                 aria-label="Previous review"
               >
-                <ChevronLeft className="w-4 h-4" />
+                <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={handleNext}
-                className="p-2 sm:p-2.5 rounded-md bg-[#0E1015] hover:bg-[#FF2626] text-white border border-white/10 transition-colors focus:outline-none"
+                className="w-11 h-11 rounded-lg bg-[#FF0336] hover:bg-[#E00230] text-white flex items-center justify-center transition-all shadow-lg shadow-[#FF0336]/30 active:scale-95"
                 aria-label="Next review"
               >
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-5 h-5" />
               </button>
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Testimonials Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-          {testimonials.map((t, idx) => {
-            const isCenter = idx === activeIndex;
-            return (
-              <motion.div
-                key={t.id}
-                initial={{ opacity: 0, y: 50, scale: 0.97 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.75, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className={`relative rounded-xl sm:rounded-2xl p-5 sm:p-7 flex flex-col justify-between transition-all duration-300 bg-[#0E1015] border shadow-xl hover:-translate-y-1.5 hover:shadow-[0_15px_35px_rgba(255,38,38,0.15)] ${
-                  isCenter 
-                    ? 'border-[#FF2626]/60 shadow-[0_20px_40px_rgba(255,38,38,0.1)] ring-1 ring-[#FF2626]/40 md:-translate-y-1' 
-                    : 'border-white/[0.08] hover:border-white/20'
-                }`}
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4 sm:mb-6">
-                    <div className="flex items-center space-x-1">
-                      {[...Array(t.rating)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
-                    <Quote className="w-5 h-5 sm:w-6 sm:h-6 text-zinc-700" />
+        {/* Testimonial Card with Gymate Red Quote Accent */}
+        <div className="max-w-4xl mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentReview.id}
+              initial={{ opacity: 0, scale: 0.98, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.98, y: -20 }}
+              transition={{ duration: 0.4 }}
+              className="relative rounded-3xl p-8 sm:p-12 lg:p-16 bg-[#12141A] border-2 border-white/10 shadow-2xl overflow-hidden"
+            >
+              {/* Gymate Oversized Red Quote Icon in Background */}
+              <div className="absolute top-6 right-8 text-[#FF0336]/15 pointer-events-none select-none">
+                <Quote className="w-24 sm:w-32 h-24 sm:h-32 rotate-180" />
+              </div>
+
+              {/* Star Rating */}
+              <div className="flex items-center space-x-1.5 mb-6 text-amber-400">
+                {Array.from({ length: currentReview.rating }).map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                ))}
+                <span className="text-xs font-mono font-bold text-zinc-400 ml-2">
+                  5.0 ★ EXCELLENT
+                </span>
+              </div>
+
+              {/* Review Text */}
+              <blockquote className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase tracking-tight text-white leading-snug mb-8 relative z-10">
+                "{currentReview.text}"
+              </blockquote>
+
+              {/* Author Row */}
+              <div className="flex items-center justify-between pt-6 border-t border-white/10 relative z-10">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 rounded-full bg-[#FF0336] text-white font-display font-black text-xl flex items-center justify-center shadow-md">
+                    {currentReview.name.charAt(0)}
                   </div>
-
-                  <p className="text-zinc-300 text-xs sm:text-sm font-normal leading-relaxed mb-4 sm:mb-6 italic">
-                    "{t.text}"
-                  </p>
-                </div>
-
-                <div className="pt-4 sm:pt-5 border-t border-white/[0.08] flex items-center justify-between">
                   <div>
-                    <h4 className="font-display text-sm sm:text-base font-bold text-white tracking-tight">
-                      {t.name}
+                    <h4 className="font-display text-xl sm:text-2xl font-black uppercase text-white tracking-tight">
+                      {currentReview.name}
                     </h4>
-                    <p className="text-[11px] sm:text-xs text-zinc-400 font-normal">
-                      {t.role}
-                    </p>
+                    <span className="text-xs text-zinc-400 font-medium">
+                      {currentReview.role}
+                    </span>
                   </div>
-                  <span className="text-[9px] sm:text-[10px] font-mono text-zinc-400 bg-white/[0.04] border border-white/10 px-2 py-0.5 rounded font-semibold">
-                    {t.timeAgo}
-                  </span>
                 </div>
-              </motion.div>
-            );
-          })}
+
+                <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-3 py-1 rounded-full font-bold">
+                  {currentReview.timeAgo}
+                </span>
+              </div>
+
+            </motion.div>
+          </AnimatePresence>
         </div>
 
       </div>
     </section>
   );
 };
-
-

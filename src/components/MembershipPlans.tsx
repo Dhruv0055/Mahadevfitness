@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, ArrowUpRight } from 'lucide-react';
+import { Check, ArrowRight, Phone } from 'lucide-react';
 import type { PlanItem } from '../types';
 
 interface MembershipPlansProps {
@@ -11,103 +11,122 @@ export const MembershipPlans: React.FC<MembershipPlansProps> = ({ onSelectPlan }
   const plans: PlanItem[] = [
     {
       id: 'flexible',
-      name: 'FLEXIBLE',
-      description: 'Ideal for short-term goals and training schedule flexibility.',
-      priceNote: 'CONTACT FOR PRICING',
+      name: 'BEGINNER PASS',
+      badge: 'MONTHLY STARTER',
+      description: 'Ideal for kickstarting your fitness journey with full floor guidance.',
+      priceNote: 'AFFORDABLE MONTHLY',
       popular: false,
       features: [
-        'Full gym floor & equipment access',
-        'Olympic free weights & cardio deck',
-        'Locker & shower facilities',
-        'Flexible monthly renewal terms'
+        'Full Olympic floor & equipment access',
+        'Dual shift entry: Morning & Evening',
+        'Locker room & clean shower access',
+        'Basic workout split & machine induction',
+        'Free fitness assessment on joining'
       ],
-      ctaText: 'GET MEMBERSHIP DETAILS'
+      ctaText: 'PURCHASE NOW'
     },
     {
       id: 'consistent',
-      name: 'CONSISTENT',
-      badge: 'MOST POPULAR',
-      description: 'For committed members dedicated to continuous progression.',
-      priceNote: 'CONTACT FOR PRICING',
+      name: 'CONSISTENT BUILDER',
+      badge: 'MOST POPULAR (3 MONTHS)',
+      description: 'Our most sought-after plan for committed muscle growth & fat loss.',
+      priceNote: 'BEST VALUE QUARTERLY',
       popular: true,
       features: [
-        'Priority floor & equipment access',
-        'Workout programming guidance',
-        'Quarterly body composition review',
-        'Functional turf & rig access',
-        'Member workshops & guest passes'
+        'Priority floor & free weight rig access',
+        'Personalized 3-month progressive split',
+        'Monthly body composition & metric audit',
+        'Nutrition guidelines & diet consultation',
+        'Priority front-desk trainer support'
       ],
-      ctaText: 'GET MEMBERSHIP DETAILS'
+      ctaText: 'PURCHASE NOW'
     },
     {
       id: 'transform',
-      name: 'TRANSFORM',
-      badge: 'ELITE PROTOCOL',
-      description: 'Intensive, guided physique and lifestyle transformation.',
-      priceNote: 'CONTACT FOR PRICING',
+      name: 'ELITE TRANSFORMATION',
+      badge: 'ANNUAL PRO MEMBERSHIP',
+      description: 'Full 1-year transformation commitment with dedicated trainer mentorship.',
+      priceNote: 'ANNUAL ELITE ACCESS',
       popular: false,
       features: [
-        'Dedicated 1-on-1 Personal Trainer',
-        'Custom nutrition & macro plan',
-        'Bi-weekly bio-metric assessment',
-        'Direct coach WhatsApp support',
-        'Priority peak equipment booking'
+        '1-on-1 Personal Trainer allocation option',
+        'Custom macro & daily nutrition protocol',
+        'Bi-weekly biomechanical progress audit',
+        'Direct WhatsApp support from head trainer',
+        'Complimentary gym merchandise / shaker'
       ],
-      ctaText: 'GET MEMBERSHIP DETAILS'
+      ctaText: 'PURCHASE NOW'
     }
   ];
 
   return (
-    <section id="membership" className="relative py-12 sm:py-20 lg:py-28 bg-[#08090C] border-t border-white/[0.08] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-3xl mx-auto mb-10 sm:mb-16"
-        >
-          <div className="inline-flex items-center space-x-2 text-[#FF2626] font-mono text-xs tracking-widest uppercase mb-3 font-bold">
-            <span className="w-4 h-[2px] bg-[#FF2626]" />
-            <span>MEMBERSHIP OPTIONS</span>
-            <span className="w-4 h-[2px] bg-[#FF2626]" />
-          </div>
-          <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-none mb-4 sm:mb-6">
-            CHOOSE YOUR <span className="text-[#FF2626]">COMMITMENT.</span>
-          </h2>
-          <p className="text-sm sm:text-base text-zinc-400 font-normal leading-relaxed">
-            Goal-oriented membership tiers tailored to your training cadence. Connect with our front desk at Yogi Chowk, Nana Varachha for current plans.
-          </p>
-        </motion.div>
+    <section id="membership" className="relative py-20 sm:py-28 lg:py-36 bg-[#08090C] border-t border-white/[0.08] overflow-hidden text-white">
+      
+      {/* Background Red Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FF0336]/10 rounded-full blur-[160px] pointer-events-none" />
 
-        {/* 3 Pricing Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-stretch">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Section Header (Gymate Style) */}
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block mb-3"
+          >
+            <div className="brush-badge bg-[#FF0336] text-white text-xs sm:text-sm font-black tracking-widest uppercase">
+              PRICING CHART
+            </div>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase text-white leading-[0.92] tracking-tight mb-4"
+          >
+            EXCLUSIVE <span className="text-[#FF0336]">PRICING PLAN</span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-zinc-400 text-xs sm:text-base leading-relaxed"
+          >
+            Transparent and goal-driven gym passes for Yogi Chowk residents. Contact our front desk directly at <strong className="text-white">08320102460</strong> for current rate card and admission offers.
+          </motion.p>
+        </div>
+
+        {/* 3 Pricing Cards Grid (Gymate Style) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch mb-12">
           {plans.map((plan, index) => {
             const isPopular = plan.popular;
 
             return (
               <motion.div
                 key={plan.id}
-                initial={{ opacity: 0, y: 50, scale: 0.97 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.75, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className={`relative rounded-xl sm:rounded-2xl p-5 sm:p-7 lg:p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(255,38,38,0.18)] ${
+                transition={{ duration: 0.65, delay: index * 0.1 }}
+                className={`relative rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2.5 ${
                   isPopular
-                    ? 'bg-[#12141A] text-white border-2 border-[#FF2626] shadow-[0_20px_40px_rgba(255,38,38,0.15)] md:-translate-y-2'
-                    : 'bg-[#0E1015] border border-white/[0.08] text-white hover:border-[#FF2626]/50'
+                    ? 'bg-[#12141A] border-2 border-[#FF0336] shadow-[0_20px_50px_rgba(255,3,54,0.3)] md:-translate-y-3'
+                    : 'bg-[#0E1015] border border-white/10 hover:border-[#FF0336]/60 shadow-xl'
                 }`}
               >
-                {/* Popular Highlight Badge */}
+                {/* Header Badge */}
                 {plan.badge && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20 whitespace-nowrap">
+                  <div className="mb-4">
                     <span
-                      className={`inline-block px-3.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-widest whitespace-nowrap ${
+                      className={`inline-block px-3 py-1 text-[10px] font-mono font-black uppercase tracking-wider rounded ${
                         isPopular
-                          ? 'bg-[#FF2626] text-white shadow-[0_4px_12px_rgba(255,38,38,0.4)]'
-                          : 'bg-zinc-800 text-zinc-300'
+                          ? 'bg-[#FF0336] text-white shadow-md'
+                          : 'bg-white/10 text-zinc-300 border border-white/10'
                       }`}
                     >
                       {plan.badge}
@@ -116,40 +135,38 @@ export const MembershipPlans: React.FC<MembershipPlansProps> = ({ onSelectPlan }
                 )}
 
                 <div>
-                  {/* Plan Name */}
-                  <div className="mb-4 sm:mb-6">
-                    <h3 className="font-display text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
-                      {plan.name}
-                    </h3>
-                    <p className="text-xs sm:text-sm font-normal mt-1.5 text-zinc-400 leading-relaxed">
-                      {plan.description}
-                    </p>
-                  </div>
+                  {/* Plan Name & Tag */}
+                  <h3 className="font-display text-2xl sm:text-3xl font-black uppercase text-white tracking-tight mb-2">
+                    {plan.name}
+                  </h3>
+                  <p className="text-xs text-zinc-400 leading-relaxed mb-6">
+                    {plan.description}
+                  </p>
 
                   {/* Pricing Slot */}
-                  <div className="my-4 sm:my-6 p-3.5 sm:p-4 rounded-xl border border-white/[0.06] bg-[#08090C] flex flex-col items-center text-center">
-                    <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest font-semibold text-zinc-400">
-                      MEMBERSHIP INVESTMENT
+                  <div className="p-4 rounded-xl bg-black/60 border border-white/10 text-center mb-6">
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#FF0336] font-black block">
+                      OFFICIAL PASS
                     </span>
-                    <span className="font-display text-xl sm:text-2xl font-extrabold text-[#FF2626] mt-1">
+                    <span className="font-display text-2xl sm:text-3xl font-black text-white mt-1 block">
                       {plan.priceNote}
                     </span>
-                    <span className="text-[10px] sm:text-[11px] mt-0.5 font-normal text-zinc-500">
-                      Custom schedules available upon desk inquiry
+                    <span className="text-[10px] text-zinc-400 mt-0.5 block">
+                      Daily Shifts: 5:30-10:30 AM & 5-10 PM
                     </span>
                   </div>
 
                   {/* Features List */}
-                  <div className="space-y-2.5 sm:space-y-3 my-4 sm:my-6">
-                    <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest block mb-2 font-semibold text-zinc-400">
-                      TIER SPECIFICATIONS:
+                  <div className="space-y-3 mb-8">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 font-bold block mb-2">
+                      INCLUDED WITH PLAN:
                     </span>
                     {plan.features.map((feature, fIdx) => (
                       <div key={fIdx} className="flex items-start space-x-2.5">
-                        <div className="mt-0.5 w-3.5 h-3.5 rounded-full bg-[#FF2626]/20 text-[#FF2626] flex items-center justify-center shrink-0">
-                          <Check className="w-2.5 h-2.5 stroke-[3]" />
+                        <div className="mt-0.5 w-4 h-4 rounded bg-[#FF0336]/20 border border-[#FF0336]/40 text-[#FF0336] flex items-center justify-center shrink-0">
+                          <Check className="w-3 h-3 stroke-[3]" />
                         </div>
-                        <span className="text-xs sm:text-sm font-normal text-zinc-300 leading-snug">
+                        <span className="text-xs text-zinc-300 leading-snug">
                           {feature}
                         </span>
                       </div>
@@ -157,30 +174,41 @@ export const MembershipPlans: React.FC<MembershipPlansProps> = ({ onSelectPlan }
                   </div>
                 </div>
 
-                {/* Card CTA */}
-                <div className="pt-4 border-t border-white/[0.08] mt-4">
-                  <button
-                    onClick={() => onSelectPlan(plan.name)}
-                    className={`w-full py-3 sm:py-3.5 px-4 sm:px-6 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center space-x-2 group ${
-                      isPopular
-                        ? 'btn-primary-red shadow-lg'
-                        : 'bg-zinc-900 hover:bg-[#FF2626] text-white border border-white/10'
-                    }`}
-                  >
-                    <span>{plan.ctaText}</span>
-                    <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </button>
+                {/* Card CTA with Gymate Offset Frame */}
+                <div className="pt-4 border-t border-white/10 mt-auto">
+                  <div className="relative group inline-block w-full">
+                    <div
+                      className={`absolute top-1 left-1 w-full h-full border-2 transition-all pointer-events-none ${
+                        isPopular ? 'border-white/50 group-hover:border-[#FF0336]' : 'border-white/20 group-hover:border-white'
+                      }`}
+                    />
+                    <button
+                      onClick={() => onSelectPlan(plan.name)}
+                      className={`relative w-full py-3.5 px-4 text-xs font-black uppercase tracking-wider flex items-center justify-center space-x-2 transition-transform active:translate-x-0.5 active:translate-y-0.5 shadow-lg ${
+                        isPopular
+                          ? 'bg-[#FF0336] hover:bg-[#E00230] text-white'
+                          : 'bg-zinc-900 hover:bg-[#FF0336] text-white border border-white/10'
+                      }`}
+                    >
+                      <span>{plan.ctaText}</span>
+                      <ArrowRight className="w-4 h-4 stroke-[3]" />
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Footer Note */}
-        <div className="mt-8 sm:mt-12 text-center text-xs text-zinc-500">
-          Looking for trainer allocation or corporate memberships?{' '}
-          <a href="#contact" className="text-[#FF2626] underline font-semibold hover:text-white transition-colors">
-            Speak directly with the Mahadev Fitness team.
+        {/* Desk Call Strip */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 p-4 bg-zinc-900/60 border border-white/10 rounded-2xl max-w-2xl mx-auto text-xs text-zinc-300 text-center sm:text-left">
+          <Phone className="w-4 h-4 text-[#FF0336] shrink-0" />
+          <span>Have special questions about shifts or trainer packages? Call front desk:</span>
+          <a
+            href="tel:08320102460"
+            className="text-[#FF0336] font-bold hover:underline font-mono text-sm whitespace-nowrap"
+          >
+            +91 83201 02460
           </a>
         </div>
 
@@ -188,5 +216,3 @@ export const MembershipPlans: React.FC<MembershipPlansProps> = ({ onSelectPlan }
     </section>
   );
 };
-
-

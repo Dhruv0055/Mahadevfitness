@@ -6,6 +6,7 @@ import { Hero } from './components/Hero';
 import { WhyBodyLab } from './components/WhyBodyLab';
 import { TrainingPrograms } from './components/TrainingPrograms';
 import { FacilitiesGallery } from './components/FacilitiesGallery';
+import { GymateBanner } from './components/GymateBanner';
 import { ResultsShowcase } from './components/ResultsShowcase';
 import { MembershipPlans } from './components/MembershipPlans';
 import { PersonalTraining } from './components/PersonalTraining';
@@ -83,7 +84,10 @@ export const App: React.FC = () => {
         {/* Section 4: Gym Facilities Gallery with Fullscreen Lightbox */}
         <FacilitiesGallery />
 
-        {/* Section 5: Transformation & Results Framework */}
+        {/* Section 5: Gymate High-Energy Callout Banner */}
+        <GymateBanner onJoinClick={() => scrollToLeadForm()} />
+
+        {/* Section 6: Transformation & Results Framework */}
         <ResultsShowcase
           onStartTransformation={() => scrollToLeadForm('Personal Training')}
         />

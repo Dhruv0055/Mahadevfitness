@@ -1,133 +1,166 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Navigation, Clock, ArrowUpRight } from 'lucide-react';
+import { MapPin, Navigation, Clock, Phone, ExternalLink } from 'lucide-react';
 
 export const LocationSection: React.FC = () => {
   const googleMapsUrl = "https://share.google/2BjOAnNhgow9Tl5RB";
 
   return (
-    <section id="location" className="relative py-12 sm:py-20 lg:py-28 bg-[#08090C] border-t border-white/[0.08] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="location" className="relative py-20 sm:py-28 lg:py-36 bg-[#0E1015] border-t border-white/[0.08] overflow-hidden text-white">
+      
+      {/* Background Graphic Watermark */}
+      <div className="absolute bottom-4 left-6 pointer-events-none select-none opacity-5 hidden lg:block">
+        <span className="font-display text-[15rem] font-black uppercase text-white leading-none">
+          SURAT
+        </span>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-16 pb-6 sm:pb-8 border-b border-white/[0.08]"
-        >
+        {/* Gymate Style Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 pb-6 sm:pb-8 border-b border-white/[0.08]">
           <div>
-            <div className="flex items-center space-x-2 text-[#FF2626] font-mono text-xs tracking-widest uppercase mb-3 font-bold">
-              <span className="w-4 h-[2px] bg-[#FF2626]" />
-              <span>YOGI CHOWK • NANA VARACHHA • SURAT</span>
-            </div>
-            <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-none">
-              FIND YOUR <span className="text-[#FF2626]">TRAINING GROUND.</span>
-            </h2>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="mb-3"
+            >
+              <div className="brush-badge bg-[#FF0336] text-white text-xs sm:text-sm font-black tracking-widest uppercase">
+                FIND US IN SURAT
+              </div>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="font-display text-4xl sm:text-6xl lg:text-7xl font-black text-white uppercase leading-[0.92] tracking-tight"
+            >
+              VISIT OUR <br className="hidden sm:inline" />
+              <span className="text-[#FF0336] inline-block drop-shadow-[0_0_30px_rgba(255,3,54,0.5)]">
+                TRAINING GROUND.
+              </span>
+            </motion.h2>
           </div>
-          <p className="mt-3 md:mt-0 text-xs sm:text-base text-zinc-400 max-w-md font-normal leading-relaxed">
-            Conveniently situated at Mansarovar Society, near Ganga Jamuna on Yogi Chowk Road in Nana Varachha, Surat.
-          </p>
-        </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-4 md:mt-0 max-w-md"
+          >
+            <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-4">
+              Conveniently located at Mansarovar Society, near Ganga Jamuna, Yogi Chowk Road in Nana Varachha, Surat. Easy parking and ground floor access.
+            </p>
+            <a
+              href="tel:08320102460"
+              className="inline-flex items-center space-x-2 text-[#FF0336] font-mono text-xs font-bold hover:underline"
+            >
+              <Phone className="w-3.5 h-3.5" />
+              <span>Front Desk: +91 83201 02460</span>
+            </a>
+          </motion.div>
+        </div>
 
         {/* Location Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           
           {/* Details Card */}
           <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.97 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 bg-[#0E1015] border border-white/[0.08] hover:border-[#FF2626]/50 rounded-xl sm:rounded-2xl p-5 sm:p-8 flex flex-col justify-between shadow-2xl transition-all duration-300 hover:-translate-y-1.5"
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-5 bg-[#141720] border-2 border-white/10 hover:border-[#FF0336] rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl transition-all duration-300"
           >
             <div>
-              <div className="flex items-center space-x-3 mb-5">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#FF2626]/15 border border-[#FF2626]/30 flex items-center justify-center text-[#FF2626]">
-                  <MapPin className="w-4 h-4" />
+              {/* Gym Header */}
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-[#FF0336] text-white flex items-center justify-center font-display font-black text-xl shadow-md">
+                  MF
                 </div>
                 <div>
-                  <h3 className="font-display text-xl sm:text-2xl font-bold text-white tracking-tight">
+                  <h3 className="font-display text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
                     MAHADEV FITNESS GYM
                   </h3>
-                  <span className="text-[10px] font-mono text-[#FF2626] font-bold tracking-wider uppercase">
+                  <span className="text-xs font-mono text-[#FF0336] font-bold tracking-wider uppercase block">
                     YOGI CHOWK PREMIER FACILITY
                   </span>
                 </div>
               </div>
 
               {/* Verified Address */}
-              <div className="space-y-1 text-zinc-300 text-xs sm:text-sm font-normal leading-relaxed mb-6 pl-3 sm:pl-4 border-l-2 border-[#FF2626]">
+              <div className="p-4 rounded-xl bg-black/50 border border-white/10 mb-6 space-y-1 text-xs sm:text-sm">
+                <div className="flex items-center space-x-2 text-[#FF0336] font-bold mb-1">
+                  <MapPin className="w-4 h-4 shrink-0" />
+                  <span>Verified Address</span>
+                </div>
                 <p className="font-bold text-white">Near Ganga Jamuna</p>
-                <p>Mansarovar Society, Yogi Chowk Road</p>
-                <p>Nana Varachha</p>
-                <p className="text-[#FF2626] font-semibold">Surat, Gujarat 395010</p>
-                <p className="text-xs text-zinc-500 font-mono">India</p>
+                <p className="text-zinc-300">Mansarovar Society, Yogi Chowk Road</p>
+                <p className="text-zinc-300">Nana Varachha, Surat</p>
+                <p className="text-[#FF0336] font-bold font-mono">Gujarat 395010, India</p>
               </div>
 
-              {/* Schedule Stream */}
-              <div className="pt-4 border-t border-white/[0.08] mb-6">
-                <div className="flex items-center space-x-2 text-xs font-mono font-bold uppercase tracking-wider text-zinc-200 mb-3">
-                  <Clock className="w-3.5 h-3.5 text-[#FF2626]" />
-                  <span>FACILITY SCHEDULE</span>
+              {/* Schedule */}
+              <div className="space-y-2.5 mb-8">
+                <div className="flex items-center space-x-2 text-xs font-mono font-bold uppercase tracking-wider text-zinc-300 mb-2">
+                  <Clock className="w-4 h-4 text-[#FF0336]" />
+                  <span>TRAINING SHIFTS:</span>
                 </div>
-                <div className="space-y-2 text-xs text-zinc-300">
-                  <div className="flex justify-between py-1.5 border-b border-white/[0.06]">
-                    <span className="text-zinc-400">Morning Shift (Mon–Sat)</span>
-                    <span className="font-bold text-white font-mono">05:30 AM – 10:30 AM</span>
-                  </div>
-                  <div className="flex justify-between py-1.5 border-b border-white/[0.06]">
-                    <span className="text-zinc-400">Evening Shift (Mon–Sat)</span>
-                    <span className="font-bold text-white font-mono">05:00 PM – 10:00 PM</span>
-                  </div>
-                  <div className="flex justify-between py-1.5 border-b border-white/[0.06]">
-                    <span className="text-zinc-400">Sunday Sessions</span>
-                    <span className="font-bold text-[#FF2626] font-mono">06:00 AM – 12:00 PM</span>
-                  </div>
+                <div className="flex justify-between p-3 rounded-lg bg-white/[0.04] border border-white/10 text-xs">
+                  <span className="text-zinc-300">Morning Shift (Mon–Sat)</span>
+                  <span className="font-bold text-white font-mono">5:30 AM – 10:30 AM</span>
                 </div>
-                <p className="text-[10px] text-zinc-500 italic mt-2.5">
-                  *Hours verified with gym front desk for holiday schedules.
-                </p>
+                <div className="flex justify-between p-3 rounded-lg bg-white/[0.04] border border-white/10 text-xs">
+                  <span className="text-zinc-300">Evening Shift (Mon–Sat)</span>
+                  <span className="font-bold text-white font-mono">5:00 PM – 10:00 PM</span>
+                </div>
+                <div className="flex justify-between p-3 rounded-lg bg-white/[0.04] border border-white/10 text-xs">
+                  <span className="text-zinc-300">Sunday Recovery</span>
+                  <span className="font-bold text-[#FF0336] font-mono">6:00 AM – 12:00 PM</span>
+                </div>
               </div>
             </div>
 
-            {/* Directions Button */}
-            <div>
+            {/* Directions Button with Gymate Offset Frame */}
+            <div className="relative group inline-block w-full">
+              <div className="absolute top-1 left-1 w-full h-full border-2 border-white/40 group-hover:border-[#FF0336] transition-all pointer-events-none" />
               <a
                 href={googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary-red w-full py-3.5 sm:py-4 px-4 sm:px-6 text-xs font-bold uppercase tracking-wider rounded-lg flex items-center justify-center space-x-2 group shadow-lg"
+                className="relative w-full bg-[#FF0336] hover:bg-[#E00230] text-white py-3.5 px-4 text-xs font-black uppercase tracking-wider flex items-center justify-center space-x-2 transition-transform active:translate-x-0.5 active:translate-y-0.5 shadow-xl shadow-[#FF0336]/30"
               >
                 <Navigation className="w-4 h-4" />
-                <span>GET DIRECTIONS ON GOOGLE MAPS</span>
-                <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <span>OPEN ON GOOGLE MAPS (5.0 ★)</span>
+                <ExternalLink className="w-4 h-4" />
               </a>
             </div>
           </motion.div>
 
           {/* Interactive Map Embed */}
           <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.97 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 rounded-xl sm:rounded-2xl overflow-hidden border border-white/[0.08] hover:border-[#FF2626]/50 relative min-h-[300px] sm:min-h-[420px] shadow-xl transition-all duration-300"
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15 }}
+            className="lg:col-span-7 rounded-2xl overflow-hidden border-2 border-white/10 hover:border-[#FF0336] relative min-h-[360px] sm:min-h-[460px] shadow-2xl transition-all duration-300 bg-black"
           >
             <iframe
               title="Mahadev Fitness Gym Surat Google Map"
               src="https://maps.google.com/maps?q=Mahadev%20Fitness%20Gym%20Mansarovar%20Society%20Yogi%20Chowk%20Nana%20Varachha%20Surat%20395010&t=&z=16&ie=UTF8&iwloc=&output=embed"
-              className="w-full h-full min-h-[300px] sm:min-h-[420px]"
+              className="w-full h-full min-h-[360px] sm:min-h-[460px]"
               style={{ border: 0 }}
               allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
 
-            <div className="absolute top-3 left-3 sm:top-4 sm:left-4 p-2 sm:p-2.5 rounded-lg bg-[#08090C]/90 backdrop-blur-md border border-white/10 shadow-xl flex items-center space-x-2 pointer-events-none">
-              <span className="w-2 h-2 rounded-full bg-[#FF2626] animate-pulse" />
-              <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-white">
+            <div className="absolute top-4 left-4 p-3 rounded-xl bg-black/80 backdrop-blur-md border border-white/15 shadow-2xl flex items-center space-x-2.5 pointer-events-none">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#FF0336] animate-pulse" />
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-white">
                 Live Pin: Mansarovar Society, Yogi Chowk
               </span>
             </div>
@@ -139,5 +172,3 @@ export const LocationSection: React.FC = () => {
     </section>
   );
 };
-
-
