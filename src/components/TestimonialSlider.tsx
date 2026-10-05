@@ -5,7 +5,6 @@ import type { TestimonialItem } from '../types';
 
 export const TestimonialSlider: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
 
   const testimonials: TestimonialItem[] = [
     {
@@ -34,19 +33,35 @@ export const TestimonialSlider: React.FC = () => {
       text: 'Spacious workout floor near Ganga Jamuna with heavy plate-loaded stations and calibrated Olympic barbells. The dual morning and evening shift timings make it super easy for working professionals.',
       verified: true,
       timeAgo: 'Google Review'
+    },
+    {
+      id: 't4',
+      name: 'Bhavin Radadiya',
+      role: 'Yogi Chowk Resident',
+      rating: 5,
+      text: 'The equipment quality here is top notch. Separate muscle zones, heavy dumbbells, and trainers who actually guide you on proper technique. Highly recommend to anyone in Surat.',
+      verified: true,
+      timeAgo: 'Google Review'
+    },
+    {
+      id: 't5',
+      name: 'Jaydeep Kathiriya',
+      role: 'Evening Shift Member',
+      rating: 5,
+      text: 'Joined 6 months ago and gained great muscle definition. Great crowd, motivating environment, and flexible shift timings. Best value fitness center in Nana Varachha!',
+      verified: true,
+      timeAgo: 'Google Review'
     }
   ];
 
-  // Change reviews slowly with fade animation (every 7 seconds)
+  // Automatically change reviews with fade animation every 4.5 seconds
   useEffect(() => {
-    if (isPaused) return;
-
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % testimonials.length);
-    }, 7000);
+    }, 4500);
 
     return () => clearInterval(timer);
-  }, [isPaused, testimonials.length]);
+  }, [testimonials.length]);
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % testimonials.length);
@@ -63,7 +78,7 @@ export const TestimonialSlider: React.FC = () => {
       
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header (Compact) */}
+        {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-zinc-200 gap-3">
           <div>
             <div className="brush-badge bg-[#FF0336] text-white text-[11px] font-black tracking-widest uppercase mb-2">
@@ -105,73 +120,84 @@ export const TestimonialSlider: React.FC = () => {
           </div>
         </div>
 
-        {/* Compact Review Card with Slow Fade Animation */}
-        <div
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          className="relative rounded-2xl p-6 sm:p-8 bg-white border border-zinc-200 shadow-md min-h-[220px] flex flex-col justify-between"
-        >
+        {/* Compact Review Card with Automatic Smooth Fade Animation */}
+        <div className="relative rounded-2xl p-6 sm:p-8 bg-white border border-zinc-200 shadow-md min-h-[240px] flex flex-col justify-between overflow-hidden">
+          
           {/* Subtle Background Quote */}
           <div className="absolute top-4 right-6 text-zinc-100 pointer-events-none select-none">
             <Quote className="w-16 h-16 rotate-180" />
           </div>
 
-          <AnimatePresence mode="wait">
+          {/* Animated Progress Timer Bar at Top */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-zinc-100 overflow-hidden">
             <motion.div
-              key={currentReview.id}
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.8, ease: 'easeInOut' }}
-              className="relative z-10 flex flex-col justify-between h-full space-y-4"
-            >
-              {/* Star Rating */}
-              <div className="flex items-center space-x-1 text-amber-500">
-                {Array.from({ length: currentReview.rating }).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-500 text-amber-500" />
-                ))}
-                <span className="text-xs font-mono font-bold text-zinc-500 ml-2">
-                  VERIFIED MEMBER
-                </span>
-              </div>
+              key={activeIndex}
+              initial={{ width: '0%' }}
+              animate={{ width: '100%' }}
+              transition={{ duration: 4.5, ease: 'linear' }}
+              className="h-full bg-[#FF0336]"
+            />
+          </div>
 
-              {/* Review Text */}
-              <blockquote className="font-display text-lg sm:text-2xl font-bold uppercase tracking-tight text-zinc-900 leading-snug">
-                "{currentReview.text}"
-              </blockquote>
-
-              {/* Member Details */}
-              <div className="flex items-center justify-between pt-4 border-t border-zinc-100">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 rounded-full bg-[#FF0336] text-white font-display font-black text-lg flex items-center justify-center shadow-xs">
-                    {currentReview.name.charAt(0)}
-                  </div>
-                  <div>
-                    <h4 className="font-display text-base sm:text-lg font-black uppercase text-zinc-950">
-                      {currentReview.name}
-                    </h4>
-                    <span className="text-xs text-zinc-500">
-                      {currentReview.role}
-                    </span>
-                  </div>
+          {/* Review Content with Smooth Fade Transitions */}
+          <div className="relative z-10 flex-1 flex flex-col justify-between pt-1">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentReview.id}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
+                className="flex flex-col justify-between space-y-4"
+              >
+                {/* Star Rating */}
+                <div className="flex items-center space-x-1 text-amber-500">
+                  {Array.from({ length: currentReview.rating }).map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-amber-500 text-amber-500" />
+                  ))}
+                  <span className="text-xs font-mono font-bold text-zinc-500 ml-2">
+                    5.0 ★ VERIFIED MEMBER
+                  </span>
                 </div>
 
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
-                  {currentReview.timeAgo}
-                </span>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+                {/* Review Text */}
+                <blockquote className="font-display text-lg sm:text-2xl font-bold uppercase tracking-tight text-zinc-900 leading-snug">
+                  "{currentReview.text}"
+                </blockquote>
+
+                {/* Member Details */}
+                <div className="flex items-center justify-between pt-4 border-t border-zinc-100">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 rounded-full bg-[#FF0336] text-white font-display font-black text-lg flex items-center justify-center shadow-xs">
+                      {currentReview.name.charAt(0)}
+                    </div>
+                    <div>
+                      <h4 className="font-display text-base sm:text-lg font-black uppercase text-zinc-950">
+                        {currentReview.name}
+                      </h4>
+                      <span className="text-xs text-zinc-500">
+                        {currentReview.role}
+                      </span>
+                    </div>
+                  </div>
+
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
+                    {currentReview.timeAgo}
+                  </span>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
           {/* Smooth Pagination Dots Below */}
-          <div className="flex items-center justify-center space-x-2 pt-4">
+          <div className="flex items-center justify-center space-x-2 pt-5 relative z-10">
             {testimonials.map((_, dotIdx) => (
               <button
                 key={dotIdx}
                 onClick={() => setActiveIndex(dotIdx)}
-                className={`h-1.5 rounded-full transition-all duration-500 ${
+                className={`h-1.5 rounded-full transition-all duration-300 ${
                   activeIndex === dotIdx
-                    ? 'w-6 bg-[#FF0336]'
+                    ? 'w-7 bg-[#FF0336]'
                     : 'w-1.5 bg-zinc-300 hover:bg-zinc-400'
                 }`}
                 aria-label={`Go to slide ${dotIdx + 1}`}
