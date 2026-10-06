@@ -46,6 +46,42 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinClick }) => {
     { label: 'Contact', href: '#contact', id: 'contact' },
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+
+    const targetId = href.replace('#', '');
+    setTimeout(() => {
+      if (targetId === 'home') {
+        const lenis = (window as any).lenis;
+        if (lenis && typeof lenis.scrollTo === 'function') {
+          lenis.scrollTo(0, { duration: 1.2 });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        return;
+      }
+
+      const element = document.getElementById(targetId);
+      if (element) {
+        const lenis = (window as any).lenis;
+        if (lenis && typeof lenis.scrollTo === 'function') {
+          lenis.scrollTo(element, { offset: -80, duration: 1.2 });
+        } else {
+          const y = element.getBoundingClientRect().top + window.pageYOffset - 80;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }
+    }, 120);
+  };
+
+  const handleJoinClick = () => {
+    setMobileMenuOpen(false);
+    setTimeout(() => {
+      onJoinClick();
+    }, 120);
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       {/* Top Mini Utility Bar (Gymate Style) */}
@@ -101,6 +137,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinClick }) => {
             {/* Gymate Style Bold Brand Mark - shrink-0 ensures it never compresses or collides */}
             <a
               href="#home"
+              onClick={(e) => handleNavClick(e, '#home')}
               className="group flex items-center space-x-2 sm:space-x-3 focus:outline-none shrink-0 mr-2 xl:mr-6"
             >
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#FF0336] flex items-center justify-center text-white shadow-[0_0_15px_rgba(255,3,54,0.5)] group-hover:scale-105 transition-transform shrink-0">
@@ -124,6 +161,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinClick }) => {
                   <a
                     key={link.id}
                     href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
                     className={`text-[11px] xl:text-xs font-bold uppercase tracking-wider transition-colors relative py-1 whitespace-nowrap ${
                       isActive ? 'text-white font-black' : 'text-zinc-300 hover:text-white'
                     }`}
@@ -194,9 +232,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinClick }) => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="lg:hidden bg-[#08090C]/98 backdrop-blur-2xl border-b border-white/10 overflow-hidden shadow-2xl"
+            className="lg:hidden bg-[#08090C]/98 backdrop-blur-2xl border-b border-white/10 overflow-y-auto max-h-[calc(100dvh-4.5rem)] shadow-2xl"
           >
-            <div className="px-6 py-6 space-y-4 max-w-md mx-auto">
+            <div className="px-6 py-6 pb-28 space-y-4 max-w-md mx-auto">
               {/* Mini Info in drawer */}
               <div className="p-3 bg-zinc-900/90 rounded-xl border border-white/10 text-xs space-y-1.5 text-zinc-300">
                 <div className="flex items-center space-x-2 text-[#FF0336] font-bold">
@@ -214,8 +252,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinClick }) => {
                   <a
                     key={link.id}
                     href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`text-sm font-bold uppercase tracking-wide py-2.5 px-3 rounded-lg transition-colors ${
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className={`text-sm font-bold uppercase tracking-wide py-2.5 px-3 rounded-lg transition-colors cursor-pointer select-none ${
                       activeSection === link.id
                         ? 'text-[#FF0336] bg-[#FF0336]/10 border-l-4 border-[#FF0336]'
                         : 'text-zinc-300 hover:text-white hover:bg-white/[0.04]'
@@ -228,11 +266,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinClick }) => {
 
               <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
                 <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onJoinClick();
-                  }}
-                  className="w-full py-3.5 text-center text-xs font-black uppercase tracking-wider text-white bg-[#FF0336] rounded-lg flex items-center justify-center space-x-2 shadow-lg shadow-[#FF0336]/30"
+                  type="button"
+                  onClick={handleJoinClick}
+                  className="w-full py-3.5 text-center text-xs font-black uppercase tracking-wider text-white bg-[#FF0336] hover:bg-[#E00230] active:scale-95 transition-all rounded-lg flex items-center justify-center space-x-2 shadow-lg shadow-[#FF0336]/30 cursor-pointer"
                 >
                   <Plus className="w-4 h-4 stroke-[3]" />
                   <span>JOIN CLASS NOW</span>
@@ -240,8 +276,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinClick }) => {
 
                 <div className="grid grid-cols-2 gap-2 pt-1">
                   <a
-                    href="tel:08320102460"
-                    className="flex items-center justify-center space-x-2 py-2.5 px-3 bg-zinc-900 border border-zinc-800 rounded-lg text-xs font-bold text-zinc-200"
+                    href="tel:+918320102460"
+                    className="flex items-center justify-center space-x-2 py-2.5 px-3 bg-zinc-900 hover:bg-zinc-800 active:scale-95 transition-all border border-zinc-800 rounded-lg text-xs font-bold text-zinc-200"
                   >
                     <Phone className="w-3.5 h-3.5 text-[#FF0336]" />
                     <span>083201 02460</span>
@@ -250,7 +286,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinClick }) => {
                     href="https://wa.me/918320102460?text=Hi%20Mahadev%20Fitness%20Gym%20Surat,%20I%20would%20like%20to%20know%20more%20about%20membership."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-2 py-2.5 px-3 bg-emerald-950/40 border border-emerald-500/30 rounded-lg text-xs font-bold text-emerald-400"
+                    className="flex items-center justify-center space-x-2 py-2.5 px-3 bg-emerald-950/40 hover:bg-emerald-950/60 active:scale-95 transition-all border border-emerald-500/30 rounded-lg text-xs font-bold text-emerald-400"
                   >
                     <MessageSquare className="w-3.5 h-3.5" />
                     <span>WhatsApp</span>

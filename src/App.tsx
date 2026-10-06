@@ -26,6 +26,8 @@ export const App: React.FC = () => {
       touchMultiplier: 1.2,
     });
 
+    (window as any).lenis = lenis;
+
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -36,6 +38,7 @@ export const App: React.FC = () => {
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      delete (window as any).lenis;
     };
   }, []);
 
@@ -45,14 +48,26 @@ export const App: React.FC = () => {
     }
     const element = document.getElementById('lead-form') || document.getElementById('contact');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const lenis = (window as any).lenis;
+      if (lenis && typeof lenis.scrollTo === 'function') {
+        lenis.scrollTo(element, { offset: -80, duration: 1.2 });
+      } else {
+        const y = element.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
     }
   };
 
   const scrollToFacilities = () => {
     const element = document.getElementById('facilities');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const lenis = (window as any).lenis;
+      if (lenis && typeof lenis.scrollTo === 'function') {
+        lenis.scrollTo(element, { offset: -80, duration: 1.2 });
+      } else {
+        const y = element.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
     }
   };
 
