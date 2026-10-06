@@ -91,26 +91,26 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinClick }) => {
       <div
         className={`transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#08090C]/95 backdrop-blur-xl py-3 shadow-[0_10px_35px_rgba(0,0,0,0.95)] border-b border-white/[0.08]'
-            : 'bg-[#08090C]/90 lg:bg-[#08090C]/80 backdrop-blur-md py-3.5 lg:py-5 border-b border-white/[0.05]'
+            ? 'bg-[#08090C]/95 backdrop-blur-xl py-2.5 sm:py-3 shadow-[0_10px_35px_rgba(0,0,0,0.95)] border-b border-white/[0.08]'
+            : 'bg-[#08090C]/90 lg:bg-[#08090C]/80 backdrop-blur-md py-3 lg:py-5 border-b border-white/[0.05]'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between gap-2 sm:gap-4">
             
             {/* Gymate Style Bold Brand Mark */}
             <a
               href="#home"
-              className="group flex items-center space-x-3 focus:outline-none shrink-0"
+              className="group flex items-center space-x-2 sm:space-x-3 focus:outline-none min-w-0"
             >
-              <div className="w-10 h-10 rounded-lg bg-[#FF0336] flex items-center justify-center text-white shadow-[0_0_20px_rgba(255,3,54,0.5)] group-hover:scale-105 transition-transform">
-                <Dumbbell className="w-5 h-5 -rotate-45" />
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#FF0336] flex items-center justify-center text-white shadow-[0_0_15px_rgba(255,3,54,0.5)] group-hover:scale-105 transition-transform shrink-0">
+                <Dumbbell className="w-4 h-4 sm:w-5 sm:h-5 -rotate-45" />
               </div>
-              <div className="flex flex-col">
-                <span className="font-display text-2xl sm:text-3xl font-black tracking-tight text-white leading-none whitespace-nowrap">
+              <div className="flex flex-col min-w-0 justify-center">
+                <span className="font-display text-xl sm:text-2xl lg:text-3xl font-black tracking-tight text-white leading-none whitespace-nowrap">
                   MAHADEV <span className="text-[#FF0336]">FITNESS</span>
                 </span>
-                <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-zinc-400 font-bold mt-1 whitespace-nowrap">
+                <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider sm:tracking-[0.2em] text-zinc-400 font-bold mt-0.5 whitespace-nowrap">
                   ULTIMATE GYM • YOGI CHOWK
                 </span>
               </div>
@@ -141,7 +141,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinClick }) => {
               })}
             </nav>
 
-            {/* Right Action Buttons */}
+            {/* Right Action Buttons - Desktop */}
             <div className="hidden lg:flex items-center space-x-3 shrink-0">
               <a
                 href="https://wa.me/918320102460?text=Hi%20Mahadev%20Fitness%20Gym%20Surat,%20I%20would%20like%20to%20inquire%20about%20membership."
@@ -164,21 +164,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinClick }) => {
               </button>
             </div>
 
-            {/* Mobile Actions */}
-            <div className="flex items-center space-x-2.5 lg:hidden">
+            {/* Mobile Actions - Strictly aligned & shrink-0 to prevent cutoff */}
+            <div className="flex items-center space-x-1.5 sm:space-x-2 lg:hidden shrink-0">
               <button
                 onClick={onJoinClick}
-                className="bg-[#FF0336] text-white px-3.5 py-1.5 text-[11px] font-black uppercase tracking-wider rounded-md active:scale-95 flex items-center space-x-1"
+                className="bg-[#FF0336] hover:bg-[#E00230] text-white px-2.5 sm:px-3.5 py-1.5 text-[10px] sm:text-[11px] font-black uppercase tracking-wider rounded-md active:scale-95 flex items-center space-x-1 whitespace-nowrap shrink-0 shadow-sm"
               >
-                <Plus className="w-3.5 h-3.5 stroke-[3]" />
+                <Plus className="w-3 h-3 stroke-[3]" />
                 <span>JOIN NOW</span>
               </button>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-zinc-300 hover:text-white focus:outline-none rounded-lg bg-zinc-900 border border-zinc-800"
+                className="w-9 h-9 text-zinc-300 hover:text-white focus:outline-none rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0 active:scale-95"
                 aria-label="Toggle Navigation Menu"
               >
-                {mobileMenuOpen ? <X className="w-5 h-5 text-[#FF0336]" /> : <Menu className="w-5 h-5" />}
+                {mobileMenuOpen ? <X className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF0336]" /> : <Menu className="w-4 h-4 sm:w-5 sm:h-5" />}
               </button>
             </div>
 
