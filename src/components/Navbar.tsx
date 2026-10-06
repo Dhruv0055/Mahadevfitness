@@ -98,16 +98,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinClick }) => {
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-2 sm:gap-4">
             
-            {/* Gymate Style Bold Brand Mark */}
+            {/* Gymate Style Bold Brand Mark - shrink-0 ensures it never compresses or collides */}
             <a
               href="#home"
-              className="group flex items-center space-x-2 sm:space-x-3 focus:outline-none min-w-0"
+              className="group flex items-center space-x-2 sm:space-x-3 focus:outline-none shrink-0 mr-2 xl:mr-6"
             >
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#FF0336] flex items-center justify-center text-white shadow-[0_0_15px_rgba(255,3,54,0.5)] group-hover:scale-105 transition-transform shrink-0">
                 <Dumbbell className="w-4 h-4 sm:w-5 sm:h-5 -rotate-45" />
               </div>
-              <div className="flex flex-col min-w-0 justify-center">
-                <span className="font-display text-xl sm:text-2xl lg:text-3xl font-black tracking-tight text-white leading-none whitespace-nowrap">
+              <div className="flex flex-col justify-center shrink-0">
+                <span className="font-display text-xl sm:text-2xl xl:text-3xl font-black tracking-tight text-white leading-none whitespace-nowrap">
                   MAHADEV <span className="text-[#FF0336]">FITNESS</span>
                 </span>
                 <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider sm:tracking-[0.2em] text-zinc-400 font-bold mt-0.5 whitespace-nowrap">
@@ -117,14 +117,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinClick }) => {
             </a>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+            <nav className="hidden lg:flex items-center space-x-3 xl:space-x-6 2xl:space-x-8 shrink-0">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.id;
                 return (
                   <a
                     key={link.id}
                     href={link.href}
-                    className={`text-xs font-bold uppercase tracking-wider transition-colors relative py-1 whitespace-nowrap ${
+                    className={`text-[11px] xl:text-xs font-bold uppercase tracking-wider transition-colors relative py-1 whitespace-nowrap ${
                       isActive ? 'text-white font-black' : 'text-zinc-300 hover:text-white'
                     }`}
                   >
@@ -142,12 +142,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinClick }) => {
             </nav>
 
             {/* Right Action Buttons - Desktop */}
-            <div className="hidden lg:flex items-center space-x-3 shrink-0">
+            <div className="hidden lg:flex items-center space-x-2 xl:space-x-3 shrink-0">
               <a
                 href="https://wa.me/918320102460?text=Hi%20Mahadev%20Fitness%20Gym%20Surat,%20I%20would%20like%20to%20inquire%20about%20membership."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-bold text-zinc-300 hover:text-white px-3 py-2 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] border border-white/10 transition-all flex items-center space-x-2 whitespace-nowrap"
+                className="hidden xl:flex text-xs font-bold text-zinc-300 hover:text-white px-3 py-2 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] border border-white/10 transition-all items-center space-x-2 whitespace-nowrap"
                 title="Chat on WhatsApp"
               >
                 <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
@@ -157,9 +157,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinClick }) => {
               {/* Gymate Red CTA with Plus Icon */}
               <button
                 onClick={onJoinClick}
-                className="bg-[#FF0336] hover:bg-[#E00230] text-white px-5 py-2.5 text-xs font-black uppercase tracking-wider rounded-md inline-flex items-center space-x-2 shadow-[0_4px_20px_rgba(255,3,54,0.4)] active:scale-95 transition-all whitespace-nowrap"
+                className="bg-[#FF0336] hover:bg-[#E00230] text-white px-3.5 xl:px-5 py-2 xl:py-2.5 text-[11px] xl:text-xs font-black uppercase tracking-wider rounded-md inline-flex items-center space-x-1.5 xl:space-x-2 shadow-[0_4px_20px_rgba(255,3,54,0.4)] active:scale-95 transition-all whitespace-nowrap shrink-0"
               >
-                <Plus className="w-4 h-4 stroke-[3]" />
+                <Plus className="w-3.5 h-3.5 xl:w-4 xl:h-4 stroke-[3]" />
                 <span>JOIN CLASS NOW</span>
               </button>
             </div>
